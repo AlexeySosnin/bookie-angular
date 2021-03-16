@@ -1,0 +1,43 @@
+.b-profile-info {
+    font: 1.2em/28px Verdana,Geneva,Arial,Helvetica,sans-serif;
+    padding: 0 3px 20px;
+}
+
+.b-profile-info__list {
+    background: 0 0;
+    margin-left: 135px;
+}
+
+    .b-profile-info__list:first-child {
+        background-color: #152d1a;
+        background-repeat: repeat-x;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAACWCAIAAACQFHUlAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAEpJREFUeNqdkcENACAIxA43cAQXcv9tasLPi4mEB4HSwAPG3GtIugNjc/8+mYPiPFXGfZtDmLe66hp7nCOZp+8zjdv/fxx6OXzmAAmzKYnysRn4AAAAAElFTkSuQmCC);
+        background-size: auto 100%;
+        -khtml-background-size: auto 100%;
+        -moz-background-size: auto 100%;
+        -o-background-size: auto 100%;
+        -webkit-background-size: auto 100%;
+        color: #fff;
+        margin: 0;
+        text-align: right;
+    }
+
+.b-profile-info__item {
+    border-bottom: solid 1px #eee;
+    border-top: solid 1px #d6d6d6;
+    height: 28px;
+    padding: 0 8px;
+}
+
+    .b-profile-info__item:first-child {
+        border-top: 0 !important;
+    }
+
+    .b-profile-info__item:last-child {
+        border-bottom: 0 !important;
+    }
+
+.b-profile-info__list:first-child .b-profile-info__item {
+    border-bottom: solid 1px #18650e;
+    border-top: solid 1px #144519;
+}

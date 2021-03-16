@@ -1,0 +1,23 @@
+.b-language {
+    padding: 23px 0 0;
+    width: 40%;
+    position: relative;
+    z-index: 4;
+}
+
+.b-language__item {
+    margin-right: 7px;
+    padding: 2px;
+}
+
+.b-language__current {
+    border: solid 1px #a6aaa3;
+    padding: 1px;
+}
+
+.b-language__link {
+    text-decoration: none;
+}
+
+.b-language__flag {
+}

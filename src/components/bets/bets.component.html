@@ -1,0 +1,78 @@
+<aside id="left-menu" class="g-clearfix">
+    <div class="b-title__bg title_reg sports_title">
+        <span class="bet_slip_txt">
+            <span class="dec_txt">{{'sports_betting' | translate}}</span>
+        </span>
+    </div>
+
+    <div id="menu___view" class="b-menu__item m-menu__item_view g-round m-round_t g-clearfix">
+
+        <a title="8 saat içindekileri göster" (click)="setHours('8')"
+            class="b-menu__link g-left {{getHoursClass('8')}}">
+            <b class='b-menu__link_icon m-menu__link_icon_4h'>8hrs</b>
+        </a>
+        <a title="12 saat içindekileri göster" (click)="setHours('12')"
+            class="b-menu__link g-left {{getHoursClass('12')}}">
+            <b class='b-menu__link_icon m-menu__link_icon_8h'>12hrs</b>
+        </a>
+        <a title="24 saat içindekileri göster" (click)="setHours('24')"
+            class="b-menu__link g-left  {{getHoursClass('24')}}">
+            <b class='b-menu__link_icon m-menu__link_icon_12h'>24hrs</b>
+        </a>
+    </div>
+
+    <div class="d-left_col">
+        <ul id="multiple" class="b-menu m-menu_sport  g-js m-menu-specials left-bar" data-accordion-group>
+            <li class="b-menu__item m-menu__item_first" *ngFor="let item of sport; let i = index" data-accordion>
+                <a class="b-menu__link m-menu__link_s" (click)="getRegions(item)" data-control>
+                    <label class="new-side-icon">
+                        <img src="assets/img/icons/{{item.type}}.svg">
+                    </label>
+                    <b class="m-menu_name_sport">{{item.name}} </b>
+                    <span class="m-menu-down">
+                        <label class="down-badge">{{item.events_count}}</label>
+                        <img *ngIf="!item.show" src="assets/img/down.png">
+                        <img *ngIf="item.show" src="assets/img/up.png">
+                    </span>
+                </a>
+                <ul data-content *ngIf="item.show">
+
+
+
+                    <li data-accordion *ngFor="let reg of item.regions; let k = index" >
+                        <a data-control="" (click)="getLeague(item.id,reg)">
+                            <div class="new-flags">
+                                <img src="assets/img/flags/{{reg.type}}.svg" />
+                            </div>
+                            <h6 class="country-name" > {{reg.name}}</h6>
+                            <span class="m-menu-down">
+                                <label class="down-badge"> {{reg.leagues_count}}</label>
+                                <img *ngIf="!reg.show" src="assets/img/down.png">
+                                <img *ngIf="reg.show" src="assets/img/up.png">
+                            </span>
+                        </a>
+                        <ul data-content>
+
+                            <div *ngIf="reg.show">
+                                <ul>
+                                    <li *ngFor="let lig of reg.leagues; let r = index"
+                                        style="line-height: 3!important;">
+                                        <article style="cursor:pointer;">
+                                            <label for="id_{{k}}_{{r}}" class="event-name">
+                                                {{lig.name | slice:0:20}}... ({{lig.events_count}})
+                                                <input type="checkbox" id="id_{{k}}_{{r}}" name="id_{{k}}_{{r}}"
+                                                    class="form-check" [checked]="lig.check"
+                                                    (change)="checkNext($event,lig)">
+                                            </label>
+                                        </article>
+                                    </li>
+                                </ul>
+                            </div>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</aside>

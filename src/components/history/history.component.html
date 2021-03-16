@@ -1,0 +1,30 @@
+
+<header class="l-page__head d-head g-clearfix">
+    <div class="l-page_header">
+        <div class="header_sub">
+            <app-header></app-header>
+            <div class="g-left"></div>
+            <form action="/search" method="post" class="search_form" name="search_form">
+                <div class="b-search">
+                    <input type="text" class="b-search__input g-left autoclear" name="searchbox" id="searchbox" [ngModel]="searchkey"
+                    placeholder="Arama...">
+                    <button type="submit" class="button_search">
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="top_winner_window" id="top_winner_window"></div>
+</header> 
+  
+  <div> 
+ 
+    <article class="l-page__c_out" style="max-width: 100% !important;" id="main_content_article">
+        <div id="main_content">
+            <div id="content" class="l-page__c"> 
+                <app-history-active ></app-history-active>
+            </div>
+        </div>
+    </article>
+  </div>
+  

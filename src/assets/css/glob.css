@@ -1,0 +1,262 @@
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    color: #fff;
+    font: 62.5% Verdana,Geneva,Arial,Helvetica,sans-serif;
+}
+
+a * {
+    cursor: pointer;
+}
+
+.g-clear {
+    clear: both;
+}
+
+.g-clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+* html .g-clearfix {
+    zoom: 1;
+}
+
+* + html .g-clearfix {
+    zoom: 1;
+}
+
+.g-hidden {
+    display: none !important;
+}
+
+.g-hidden-accessible {
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px,1px,1px,1px);
+    position: absolute !important;
+}
+
+.g-left {
+    float: left;
+}
+
+.g-right {
+    float: right;
+}
+
+.g-ellipsis {
+    display: block;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -moz-binding: url(moz_fix.xml#ellipsis);
+}
+
+.g-txt_r {
+    text-align: right;
+}
+
+.g-txt_c {
+    text-align: center;
+}
+
+.g-txt_l {
+    text-align: left;
+}
+
+.g-stack {
+    display: -moz-inline-stack;
+    display: inline-block;
+    *display: inline;
+    _overflow: hidden;
+    *zoom: 1;
+    vertical-align: top;
+}
+
+.g-fixed-center {
+    left: 50%;
+    position: fixed;
+    top: 50%;
+}
+
+.g-round {
+    -webkit-background-clip: padding-box !important;
+}
+
+.g-round_2 {
+    -moz-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -webkit-background-clip: padding-box !important;
+    border-radius: 2px;
+}
+
+.g-round_4 {
+    -moz-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -webkit-background-clip: padding-box !important;
+    border-radius: 4px;
+}
+
+.m-round_t {
+    -moz-border-radius-bottomright: 0;
+    -moz-border-radius-bottomleft: 0;
+    -webkit-border-bottom-right-radius: 0;
+    -webkit-border-bottom-left-radius: 0;
+    -khtml-border-bottom-right-radius: 0;
+    -khtml-border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.b-bet-bg_title_1x2 {
+    -webkit-border-radius: 4px 4px 0 0;
+    -khtml-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+    behavior: url(border-radius.html);
+}
+
+.b-box__content_border .b-bet-bg_title_1x2 {
+    background-image: none !important;
+}
+
+.ie6 .b-box__content_border .b-bet-bg_title_1x2, .ie7 .b-box__content_border .b-bet-bg_title_1x2, .ie8 .b-box__content_border .b-bet-bg_title_1x2 {
+    background: url(../img/bg_title_cnc_reg_778x35.html) no-repeat 100% 0 !important;
+}
+
+.g-shadow_2_2_4 {
+    -moz-box-shadow: 2px 2px 4px rgba(0,0,0,.42);
+    -ms-box-shadow: 2px 2px 4px rgba(0,0,0,.42);
+    -webkit-box-shadow: 2px 2px 4px rgba(0,0,0,.42);
+    box-shadow: 2px 2px 4px rgba(0,0,0,.42);
+}
+
+.g-shadow_0_0_10 {
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.32);
+    -ms-box-shadow: 0 0 10px rgba(0,0,0,.32);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.32);
+    box-shadow: 0 0 10px rgba(0,0,0,.32);
+}
+
+.g-shadow_1_2_6 {
+    -moz-box-shadow: 1px 2px 6px rgba(0,0,0,.32);
+    -ms-box-shadow: 1px 2px 6px rgba(0,0,0,.32);
+    -webkit-box-shadow: 1px 2px 6px rgba(0,0,0,.32);
+    box-shadow: 1px 2px 6px rgba(0,0,0,.32);
+}
+
+.g-shadow_1_1_6 {
+    -moz-box-shadow: 1px 1px 6px rgba(0,0,0,.45);
+    -ms-box-shadow: 1px 1px 6px rgba(0,0,0,.45);
+    -webkit-box-shadow: 1px 1px 6px rgba(0,0,0,.45);
+    box-shadow: 1px 1px 6px rgba(0,0,0,.45);
+}
+
+.g-shadow_1_2_4, .g-shadow_0_0_10, .g-shadow_1_2_6, .g-shadow_1_1_6 {
+    position: relative;
+    z-index: 3;
+}
+
+.g-shadow__inn {
+    position: relative;
+    z-index: 4;
+}
+
+.g-shadow__ie {
+    background: #000;
+    position: absolute;
+    z-index: 2;
+}
+
+.g-shadow_1_2_4 .g-shadow__ie {
+    bottom: 3px;
+    left: -2px;
+    right: 2px;
+    top: -3px;
+    
+}
+
+.g-shadow_0_0_10 .g-shadow__ie {
+    bottom: 10px;
+    left: -10px;
+    right: 10px;
+    top: -10px;
+    
+}
+
+.g-shadow_1_2_6 .g-shadow__ie {
+    bottom: 5px;
+    left: -4px;
+    right: 4px;
+    top: -5px;
+    
+}
+
+.g-shadow_1_1_6 .g-shadow__ie {
+    bottom: 5px;
+    left: -5px;
+    right: 5px;
+    top: -5px;
+    
+}
+
+.nav-wrap {
+    background: #2b2b2b;
+    background: -moz-linear-gradient(top,rgba(43,43,43,1) 0%,rgba(32,32,32,1) 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(43,43,43,1)),color-stop(100%,rgba(32,32,32,1)));
+    background: -webkit-linear-gradient(top,rgba(43,43,43,1) 0%,rgba(32,32,32,1) 100%);
+    background: -o-linear-gradient(top,rgba(43,43,43,1) 0%,rgba(32,32,32,1) 100%);
+    background: -ms-linear-gradient(top,rgba(43,43,43,1) 0%,rgba(32,32,32,1) 100%);
+    background: linear-gradient(to bottom,rgba(43,43,43,1) 0%,rgba(32,32,32,1) 100%);
+    
+    background-position: 1px 1px;
+}
+
+.g-bold {
+    font-weight: 700 !important;
+}
+
+.color_det {
+    color: #dea76f;
+}
+
+.group:after {
+    visibility: hidden;
+    display: block;
+    content: "";
+    clear: both;
+    height: 0;
+}
+
+*:first-child + html .group {
+    zoom: 1;
+}
+
+.second_level {
+    margin-left: 10px;
+}
+
+.g-padding {
+    padding: 10px;
+}
+
+.m-padding_l {
+    padding-bottom: 0;
+    padding-right: 0;
+    padding-top: 0;
+}
+
+.g-absolute-center {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+}

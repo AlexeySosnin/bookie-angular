@@ -1,0 +1,142 @@
+<header class="l-page__head d-head g-clearfix">
+    <div class="l-page_header">
+        <div class="header_sub">
+            <app-header></app-header>
+            <div class="g-left"></div>
+            <form action="/search" method="post" class="search_form" name="search_form">
+                <div class="b-search">
+                    <input type="text" class="b-search__input g-left autoclear" name="searchbox" id="searchbox" placeholder="Arama...">
+                    <button type="submit" class="button_search">
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="top_winner_window" id="top_winner_window"></div>
+</header>
+
+<div class="l-page__body d-main g-clearfix">
+    
+    <div class="l-page__body_u">
+        <article class=" l-page__c_out" style="    max-width: 100% !important;" id="main_content_article">
+            <div id="main_content">
+                <div id="content" class="l-page__c">
+                   
+                    <section class="match-results-page">
+                        <div class="left">
+                            <div class="match-result-title">
+                                <label>{{'match_results' | translate}}</label>
+                            </div>
+                            <div class="filter">
+                                <div class="item">
+                                    <label>{{'sport' | translate}}</label>
+                                    <select #sportSelect name="bet_stat" (change)="changeSport(sportSelect.value)"
+                                        id="bet_stat" class="b-filters__select b-select">
+                                        <option value="">{{'select' | translate}}</option>
+                                        <option *ngFor="let item of sports; let i = index" [value]="item.id">
+                                            {{item.name}}</option>
+                                    </select>
+                                </div>
+                                <div class="item">
+                                    <label>{{'league' | translate}}</label>
+                                    <select name="bet_stat" #regionSelect  (change)="changeRegion(regionSelect.value)"
+                                        id="bet_stat" class="b-filters__select b-select">
+                                        <option value="">{{'select' | translate}}</option>
+                                        <option *ngFor="let region of regions; let i = index" value="{{region.id}}">
+                                            {{region.name}}</option>
+                                    </select>
+                                </div>
+                                <div class="item">
+                                    <button (click)="load()">{{'search' | translate}}</button>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="loader new-loader" title="5" *ngIf="!isLoading">
+                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    x="0px" y="0px" width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;"
+                                    xml:space="preserve">
+                                    <rect x="0" y="13" width="4" height="5" fill="#333">
+                                        <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0s" dur="0.6s"
+                                            repeatCount="indefinite" />
+                                        <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0s" dur="0.6s"
+                                            repeatCount="indefinite" />
+                                    </rect>
+                                    <rect x="10" y="13" width="4" height="5" fill="#333">
+                                        <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0.15s" dur="0.6s"
+                                            repeatCount="indefinite" />
+                                        <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0.15s" dur="0.6s"
+                                            repeatCount="indefinite" />
+                                    </rect>
+                                    <rect x="20" y="13" width="4" height="5" fill="#333">
+                                        <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0.3s" dur="0.6s"
+                                            repeatCount="indefinite" />
+                                        <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0.3s" dur="0.6s"
+                                            repeatCount="indefinite" />
+                                    </rect>
+                                </svg>
+                            </div>
+                            <div class="match-result-table" *ngIf="isLoading">
+                                <div class="table-title">
+                                    <div class="date"><span>{{'date' | translate}}</span></div>
+                                    <div class="activity"><span>{{'league' | translate}}</span></div>
+                                    <div class="encounter"><span>{{'encounter' | translate}}</span></div>
+                                    <div class="score"><span>{{'score' | translate}}</span></div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="table-item" *ngIf="list">
+                                    <ng-container *ngIf="list.length === 0">
+                                        <div class="panel-result">
+                                            <div class="result-image">
+                                                <img src="assets/img/found.png" class="img-fluid" alt="">
+                                            </div>
+                                            <div class="result-title warning">
+                                                {{'n_record' | translate}}
+                                            </div>
+                                            <div class="result-desc">
+                                                {{'recordnotfoundpleasetryagain' | translate}}
+                                            </div>
+                                            <div class="result-buttons">
+                                                <button class="btn-sub">{{"homepage" | translate}}</button>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                   
+                                </div>
+                                <div class="table-item" *ngFor="let it  of list">
+                                    <div class="date" (click)="showDetail(it)"><span>{{it.start_at_date}} {{it.start_at_hour}}</span></div>
+                                    <div class="activity" (click)="showDetail(it)"><span>{{it.region.name}}</span></div>
+                                    <div class="encounter" (click)="showDetail(it)"><span>{{it.name}}</span></div>
+                                    <div class="score" (click)="showDetail(it)"><span>{{it.stats.score}}</span></div>
+                                    <div class="clearfix"></div>
+                                    <div class="table-item-detail" *ngIf="it.showDetail">
+                                        <div class="content">
+                                            <div class="item" *ngIf="evenDetail.markets.length === 0">
+                                                {{'n_record' | translate}}
+                                            </div>
+                                            <div class="item" *ngFor="let dt of evenDetail.markets">
+                                                <label>{{dt.name}} :</label><span *ngIf="dt.result">{{dt.result.name}}</span></div>  <div class="clearfix"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="match-result-detail-title">
+                                {{'today_result' | translate}}
+                            </div>
+                            <ul>
+                                <li  *ngFor="let item of sports; let i = index" ><a (click)="detail(item)">{{item.name}}</a></li>
+                               
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </article>
+    </div>
+    <div id="main_content_sibling"></div>
+    <div style="clear:both;"></div>
+</div>

@@ -1,0 +1,92 @@
+<div id="single-pane-events">
+    <div *ngIf="noBets()">
+        <div class="text_clone clone_betcart"><b>{{'nc_coupon' | translate}}</b>{{'c_coupon' | translate}}</div>
+    </div>
+    <div class="betcart-pane-event event_id16977449 sports type1x2  scopefe allowance0 betcart-pane-event-first-child"
+        [ngClass]="{'event-disabled': cup.price.price == '0'}"
+        *ngFor="let cup of getSelectedEvent(); let r = index">
+        <div class="betcart-pane-event-name">
+            <div>
+                <span>
+                    {{cup.event.name}}
+                </span>
+            </div>
+            <a class="betcart-pane-event-remove" style="cursor: pointer;" (click)="delete(cup)">&nbsp;</a>
+        </div>
+        <div class="betcart-pane-event-row g-clearfix">
+            <span>{{'guess' | translate}}</span>
+            <b class="betcart-pane-event-coeff">
+                {{cup.price.price  | number: '1.0-2'}}
+
+            </b>
+            <strong class="betcart-pane-event-pick">
+                {{cup.price.name === 'W1' ? cup.event.teams[0].name : ''}}
+                {{cup.price.name === 'W2' ? cup.event.teams[1].name : ''}}
+                {{cup.price.name === 'Draw' ? 'Beraberlik' : ''}}
+                {{cup.price.name === '99' ? cup.orjName : ''}}
+                {{cup.price.name | slice:0:10 }}.. 
+
+            </strong>
+        </div>
+        <div class="betcart-pane-event-stake g-clearfix g-hidden">
+            <span>{{'quantity2' | translate}}</span>
+            <input class="single-amount-value" min="1" type="number">
+        </div>
+        
+    </div>
+</div> 
+<div class="betcart-pane-checkbox" id="default-pane-checkbox" *ngIf="getSelectedEvent().length>0">
+    <div id="accept_high" class="additional-checkbox betcart-pane-checkbox-item accept-high {accept_high_selected}">
+        <input type="checkbox" id="oran" name="oran" (change)="checkNext($event)" value="1">
+        <label for="oran">{{'accept_rate_change' | translate}}</label><br>
+    </div>
+</div>
+<div class="betcart-pane-bottom" *ngIf="getSelectedEvent().length>0">
+    <div id="single-pane-bottom" class="betcart-pane-bottom-inn">
+        <div class="betcart-pane-bottom-item betcart-pane-bottom-count g-clearfix">
+            <span>{{'total_rate' | translate}}</span>
+            <var>{{percent  | number: '1.0-2' }}</var>
+        </div>
+        
+        <div class="betcart-pane-bottom-item betcart-pane-bottom-total g-clearfix">
+            <span>{{'column_number' | translate}}</span>
+            <var>{{countCoupon}}</var>
+        </div>
+        <div class="betcart-pane-bottom-item betcart-pane-bottom-total g-clearfix">
+            <span>{{'full_bet' | translate}}</span>
+            <input type="number" min="1" (keyup)="changeM($event)">
+        </div>
+        <div class="betcart-pane-bottom-item betcart-pane-bottom-potential g-clearfix">
+            <span>{{'max_gain' | translate}}</span>
+            <var>{{max  | number: '1.0-2'}}</var>
+        </div>
+    </div>
+</div>
+<div id="betcard_error_panel" *ngIf="isErrorMsg" class="betcard-error betcard_error_panel_clone g-hidden">
+    <div class="betcard-error-item">{{errorMsg}}</div>
+</div>
+<div class="panel-success" *ngIf="isSuccesMsg">
+    <img src="assets/img/tick.png" />
+    <div class="betcard-error-item">{{errorMsg}}</div>
+
+</div>
+<div id="single-pane-button" class="betcart-pane-action g-clearfix">
+    <a (click)="next()"  *ngIf="getSelectedEvent().length>0 && !sending" 
+        class="b-button b-button_next g-stack betcart-pane-action-item betcart-pane-action-send">
+        <b class="b-button__text g-stack">{{'next' | translate}}</b>
+    </a>
+    <a (click)="wait()"  *ngIf="getSelectedEvent().length>0 && sending" 
+        class="b-button b-button_next g-stack betcart-pane-action-item betcart-pane-action-send">
+        <b class="b-button__text g-stack">{{'waitplease' | translate}}</b>
+    </a>
+    <a (click)="deleteAllItem()"  *ngIf="getSelectedEvent().length>0" 
+        class="b-button b-button_clear  b-button_change g-stack betcart-pane-action-item betcart-pane-action-clear">
+        <b class="b-button__text">{{'delete_all' | translate}}</b>
+    </a>
+    <a class="b-button b-button_conf g-stack betcart-pane-action-item betcart-pane-action-confirm g-hidden">
+        <b class="b-button__text g-stack">{{'play_now' | translate}}</b>
+    </a>
+    <a class="b-button b-button_change g-stack betcart-pane-action-item betcart-pane-action-change g-hidden">
+        <b class="b-button__text g-stack">{{'change_bet' | translate}}</b>
+    </a>
+</div>

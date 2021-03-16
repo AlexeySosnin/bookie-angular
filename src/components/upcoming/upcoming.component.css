@@ -1,0 +1,12 @@
+.nav-wrap-li .b-menu__icon {
+	margin-top: 6px;
+}
+.tabs-active  {
+	background-color: #f9c25a;
+	color: #292929!important;
+
+}
+.tabs-active a {
+	color: #292929!important;
+
+}

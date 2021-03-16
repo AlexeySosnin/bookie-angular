@@ -1,0 +1,259 @@
+<div class="loader new-loader" title="5" *ngIf="!isLoading">
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px" y="0px" width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;"
+        xml:space="preserve">
+        <rect x="0" y="13" width="4" height="5" fill="#333">
+            <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0s" dur="0.6s"
+                repeatCount="indefinite" />
+            <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0s" dur="0.6s"
+                repeatCount="indefinite" />
+        </rect>
+        <rect x="10" y="13" width="4" height="5" fill="#333">
+            <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0.15s" dur="0.6s"
+                repeatCount="indefinite" />
+            <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0.15s" dur="0.6s"
+                repeatCount="indefinite" />
+        </rect>
+        <rect x="20" y="13" width="4" height="5" fill="#333">
+            <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0.3s" dur="0.6s"
+                repeatCount="indefinite" />
+            <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0.3s" dur="0.6s"
+                repeatCount="indefinite" />
+        </rect>
+    </svg>
+</div>
+<article class="c-content_left " *ngIf="isLoading">
+    <div id="home">
+
+        <div class="d-box__body_inn">
+            <div id="hightabs" class="b-hightabs ui-tabs">
+                <div class="prelive_start">
+                </div>
+                <div class="nav-wrap">
+                    <ul id="sub-light-list" class="b-livetabs__nav ui-tabs-nav g-clearfix" *ngIf="checkFavorite()">
+
+                        <ng-container *ngFor="let sport of highlights.sports;let k = index;">
+
+                            <li id="sport_12" rel="s" class="nav-wrap-li b-livetabs__item  ui-state-active"
+                                [ngClass]="activeTab === '' ? (k === 0 ? 'tabs-active' : '') : activeTab == sport.id ? 'tabs-active': ''"
+                                (click)="favoriteEvent(sport)"> <a class="b-link m-menu__link_{{sport.type}}">
+                                    <i class="b-menu__icon g-stack"></i>
+                                    <span class="sport_name">{{sport.name}}</span>
+                                </a>
+
+                            </li>
+
+                        </ng-container>
+
+                    </ul>
+                </div>
+                <div class="b-bet-grid__out   b-bet-grid__out_1x2 b-bet-grid__out_last g-round_b  sport_12-id">
+                    <table class="b-bet-grid" cellpadding="0" cellspacing="0">
+                        <colgroup class="colgroup">
+                            <col width="46px" />
+                            <col />
+                            <col width="55px" />
+                            <col width="55px" />
+                            <col width="55px" class="additional_144969464" />
+                            <col width="66px" />
+                        </colgroup>
+                        <tbody class="b-bet-grid__bets" *ngIf="isLoading">
+                            <ng-container *ngIf="events">
+                                <ng-container *ngIf="events.length===0">
+                                    <tr>
+                                        <td colspan="6">
+                                            <div class="b-title b-title__bg title_reg">
+                                                {{'n_record' | translate}}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </ng-container>
+                            </ng-container>
+
+                            <ng-container *ngFor="let it of events">
+                                <tr>
+                                    <td colspan="6">
+                                        <div class="b-title b-title__bg title_reg">
+                                            <span class="bet_slip_txt ">
+                                                <a class="b-link" style="cursor: pointer;"
+                                                    (click)="getSportEvent(it.nodes.sport)">{{it.nodes.sport.name}}</a>
+                                                <span class="tit_arr_ev"></span>
+                                                <a class="b-link" style="cursor: pointer;"
+                                                    (click)="getRegionEvent(it.nodes.sport,it.nodes.region)">{{it.nodes.region.name}}</a>
+                                                <span class="tit_arr_ev"></span>
+                                                <a class="b-link" style="cursor: pointer;"
+                                                    (click)="getLeagueEvent(it.nodes.sport,it.nodes.region,it.nodes.league)">{{it.nodes.league.name}}</a>
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <ng-container *ngFor="let event of it.events">
+                                    <tr class="b-bet-grid__date b-bet-grid_head_bg">
+                                        <td class="b-bet-grid__cell" colspan="2">
+                                            <div class="b-bet-grid__date_div"> {{event.date}} </div>
+                                        </td>
+                                        <td class="b-bet-grid__cell"
+                                            *ngIf="it.nodes.sport.id != 1 && it.nodes.sport.id != 29 && it.nodes.sport.id != 24 && it.nodes.sport.id !== 36">
+                                            <div class="b-bet-grid__date_div date_txt"></div>
+                                        </td>
+                                        <td class="b-bet-grid__cell">
+                                            <div class="b-bet-grid__date_div date_txt">1</div>
+                                        </td>
+                                        <td class="b-bet-grid__cell"
+                                            *ngIf="it.nodes.sport.id === 1 || it.nodes.sport.id === 29 || it.nodes.sport.id === 36 || it.nodes.sport.id === 24">
+                                            <div class="b-bet-grid__date_div date_txt">X</div>
+                                        </td>
+                                        <td class="b-bet-grid__cell">
+                                            <div class="b-bet-grid__date_div date_txt">2</div>
+                                        </td>
+                                        <td class="b-bet-grid__cell">
+                                            <div class="b-bet-grid__date_div date_txt"></div>
+                                        </td>
+
+                                    </tr>
+                                    <tr class="b-bet-grid__even" *ngFor="let k of event.events">
+                                        <td class="b-bet-grid__cell">
+                                            <span class="b-cell_time b-link b-link_name" style="cursor: pointer;"
+                                                (click)="setEvent(k)"> <b> {{k.start_at_hour}}</b>
+                                            </span>
+                                        </td>
+                                        <td class="b-bet-grid__cell">
+                                            <span class="cell_bord_l">
+                                                <a title="{{k.name}}" style="cursor: pointer;" (click)="setEvent(k)"
+                                                    class="b-link b-link_name">
+                                                    <b class="g-ellipsis">{{k.name}} </b>
+                                                </a>
+                                            </span>
+                                        </td>
+                                        <td class="b-bet-grid__cell"
+                                            *ngIf="it.nodes.sport.id === 3 || it.nodes.sport.id === 14 || 
+                                        it.nodes.sport.id === 19 || it.nodes.sport.id === 22 || it.nodes.sport.id === 26  || it.nodes.sport.id === 35 || 
+                                        it.nodes.sport.id === 9|| it.nodes.sport.id === 6 || it.nodes.sport.id === 2 || it.nodes.sport.id === 8 ||
+                                        it.nodes.sport.id === 38 || it.nodes.sport.id === 53 || it.nodes.sport.id === 58 || it.nodes.sport.id === 59
+                                        || it.nodes.sport.id === 64 || it.nodes.sport.id === 172 || it.nodes.sport.id === 148">
+                                            <span class="cell_bord_l">
+
+                                            </span>
+                                        </td>
+                                        <td class="b-bet-grid__cell" *ngIf="getNodesSportCheck(it.nodes.sport)">
+                                            <span class="cell_bord_l">
+
+                                            </span>
+                                        </td>
+                                        <td class="b-bet-grid__cell"
+                                            *ngFor="let percent of k.featured_markets[0]?.odds;let p = index">
+                                            <span class="cell_bord_l">
+                                                <a (click)="selectedEvent(k,percent)"
+                                                    class="b-link b-link_ev b-cell_hover {{getEventIsSelected(event,percent)}}  {{percent.selected}} ">
+
+                                                    <b class="g-round b-index_block_size odds_value"
+                                                        *ngIf="!showLock(k.featured_markets[0],percent)">{{percent.price}}</b>
+                                                    <img *ngIf="showLock(k.featured_markets[0],percent)"
+                                                        src="assets/img/lock.png">
+                                                </a>
+
+                                            </span>
+
+                                        </td>
+                                        <td class="b-bet-grid__cell"
+                                            *ngIf="k.featured_markets.length===0 && it.nodes.sport.id === 4">
+                                            <span class="cell_bord_l">
+                                                <div class="b-link b-link_ev b-cell_hover"><b><img
+                                                            src="assets/img/lock.png"></b></div>
+                                            </span>
+                                        </td>
+                                        <td class="b-bet-grid__cell"
+                                            *ngIf="k.featured_markets.length===0 && it.nodes.sport.id === 4">
+                                            <span class="cell_bord_l">
+                                                <div class="b-link b-link_ev b-cell_hover"><b><img
+                                                            src="assets/img/lock.png"></b></div>
+                                            </span>
+                                        </td>
+                                        <td class="b-bet-grid__cell"
+                                            *ngIf="k.featured_markets.length===0 && it.nodes.sport.id === 3">
+                                            <span class="cell_bord_l">
+                                                <div class="b-link b-link_ev b-cell_hover"><b><img
+                                                            src="assets/img/lock.png"></b></div>
+                                            </span>
+                                        </td>
+                                        <td class="b-bet-grid__cell"
+                                            *ngIf="k.featured_markets.length===0 && it.nodes.sport.id === 3">
+                                            <span class="cell_bord_l">
+                                                <div class="b-link b-link_ev b-cell_hover"><b><img
+                                                            src="assets/img/lock.png"></b></div>
+                                            </span>
+                                        </td>
+                                        <td class="b-bet-grid__cell"
+                                            *ngIf="k.featured_markets.length===0 && it.nodes.sport.id == 1">
+                                            <span class="cell_bord_l">
+                                                <div class="b-link b-link_ev b-cell_hover"><b><img
+                                                            src="assets/img/lock.png"></b></div>
+                                            </span>
+                                        </td>
+                                        <td class="b-bet-grid__cell"
+                                            *ngIf="k.featured_markets.length===0 && it.nodes.sport.id === 1">
+                                            <span class="cell_bord_l">
+                                                <div class="b-link b-link_ev b-cell_hover"><b><img
+                                                            src="assets/img/lock.png"></b></div>
+                                            </span>
+                                        </td>
+                                        <td class="b-bet-grid__cell"
+                                            *ngIf="k.featured_markets.length===0 && it.nodes.sport.id === 1">
+                                            <span class="cell_bord_l">
+                                                <div class="b-link b-link_ev b-cell_hover"><b><img
+                                                            src="assets/img/lock.png"></b></div>
+                                            </span>
+                                        </td>
+                                        <td class="b-bet-grid__cell"
+                                            *ngIf="k.featured_markets.length===0 && it.nodes.sport.id == 2">
+                                            <span class="cell_bord_l">
+                                                <div class="b-link b-link_ev b-cell_hover"><b><img
+                                                            src="assets/img/lock.png"></b></div>
+                                            </span>
+                                        </td>
+                                        <td class="b-bet-grid__cell"
+                                            *ngIf="k.featured_markets.length===0 && it.nodes.sport.id === 2">
+                                            <span class="cell_bord_l">
+                                                <div class="b-link b-link_ev b-cell_hover"><b><img
+                                                            src="assets/img/lock.png"></b></div>
+                                            </span>
+                                        </td>
+                                        <td class="b-bet-grid__cell"
+                                            *ngIf="k.featured_markets.length===0 && (it.nodes.sport.id === 6 || it.nodes.sport.id ==22 || it.nodes.sport.id === 172 || it.nodes.sport.id === 148 || it.nodes.sport.id === 26 || it.nodes.sport.id === 35)">
+                                            <span class="cell_bord_l">
+                                                <div class="b-link b-link_ev b-cell_hover"><b><img
+                                                            src="assets/img/lock.png"></b></div>
+                                            </span>
+                                        </td>
+                                        <td class="b-bet-grid__cell"
+                                            *ngIf="k.featured_markets.length===0 && (it.nodes.sport.id === 6 || it.nodes.sport.id ==22 || it.nodes.sport.id === 172 || it.nodes.sport.id === 148 || it.nodes.sport.id === 26 || it.nodes.sport.id === 35)">
+                                            <span class="cell_bord_l">
+                                                <div class="b-link b-link_ev b-cell_hover"><b><img
+                                                            src="assets/img/lock.png"></b></div>
+                                            </span>
+                                        </td>
+                                        <td class="b-bet-grid__cell m-bet-grid__cell_count ">
+                                            <span class="cell_bord_l">
+                                                <a (click)="setEvent(k)" class="b-link">
+                                                    <div class="g-round">
+                                                        <span>{{k.markets_count}}</span>
+                                                        +
+                                                    </div>
+                                                </a>
+                                            </span>
+                                        </td>
+
+                                    </tr>
+                                </ng-container>
+                            </ng-container>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="prelive_end"></div>
+            </div>
+            <div class="d-box__foot d-box__bg">
+                <div class="d-box__foot_inn d-box__bg"></div>
+            </div>
+        </div>
+    </div>
+</article>

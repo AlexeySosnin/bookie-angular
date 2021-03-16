@@ -1,0 +1,360 @@
+.b-title__bg, .b-title__text:after, .b-title__text after {
+    margin: 0 0 -2px;
+    overflow: hidden;
+}
+
+.b-title__bg {
+    border-bottom: 1px solid #3b3b3b;
+}
+
+#refreshing_coming_soon_events .b-title__bg, #live_events_running .b-title__bg {
+    border: none;
+}
+
+.title_reg.title_liveip {
+   /* progid:DXImageTransform.Microsoft.Gradient(enabled='false*/
+    background: url(../img/live-right-col-title.png) no-repeat 0 0;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 0;
+    height: auto;
+    padding: 5px 8px 7px 12px;
+    text-shadow: 1px 1px 2px #000;
+    position: relative;
+    top: -1px;
+    left: -1px;
+    width: 145px;
+    border: 0 !important;
+}
+
+.g-round .events_title {
+    border: 1px solid #3b3b3b;
+    border-bottom: none;
+}
+
+.events_contein .events_title {
+    border: none;
+    border-top: 1px solid #3b3b3b;
+}
+
+.b-bet-grid__out.r-live {
+    overflow: visible !important;
+    background: #080808;
+}
+
+.color_e {
+    color: #e57308;
+    text-shadow: 0 -1px 0 #76420f,0 1px 0 #000;
+}
+
+.title_reg.b-title_hl {
+    font-size: 20px;
+    padding: 8px 8px 6px;
+    height: 25px;
+    border: 1px solid #3b3b3b;
+}
+
+.b-bet-grid__out:first-child .b-title__bg, br + .b-bet-grid__out .b-title__bg {
+    border-top: 0;
+    margin-top: 0;
+}
+
+.bet_slip_txt .dec_txt {
+    color: #f0d13f;
+}
+
+.bet_slip_txt .slider_title {
+    font-size: 15px;
+}
+
+.bet_slip_txt .dec_txt span {
+    font-weight: 400;
+}
+
+.dec_txt a {
+    color: #f0d13f;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.b-menu__item a {
+    color: #fff;
+}
+
+.title_reg {
+    background: #2d2d2d;
+    background: -moz-linear-gradient(top,#2d2d2d 0%,#181818 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#2d2d2d),color-stop(100%,#181818));
+    background: -webkit-linear-gradient(top,#2d2d2d 0%,#181818 100%);
+    background: -o-linear-gradient(top,#2d2d2d 0%,#181818 100%);
+    background: -ms-linear-gradient(top,#2d2d2d 0%,#181818 100%);
+    background: linear-gradient(to bottom,#2d2d2d 0%,#181818 100%);
+    
+    height: 17px;
+    color: #fff;
+    font-family: Arial;
+    font-size: 16px;
+    padding: 9px 8px 11px;
+    margin-bottom: 0;
+    text-shadow: 1px 1px 1px #171717;
+}
+
+.sports_title, .top_winner_title {
+    border-bottom: none;
+}
+
+.title_contein_box {
+    height: 20px;
+    color: #fff;
+    font-family: Arial;
+    font-size: 14px;
+    padding: 8px;
+    margin-bottom: -1px;
+}
+
+.b-box__content_border .title_reg {
+    background: url(../img/bg_title_cnc_reg_778x35.html) 100% 0 no-repeat;
+}
+
+.title_search {
+    background: url(../img/bg_bet_grid_item_530x35.html) no-repeat;
+    height: 20px;
+    color: #fff;
+    font-family: Arial;
+    font-size: 16px;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.b-box__content_border .b-title__text {
+    background: 0 0;
+}
+
+.d-col-right .b-title {
+    margin-bottom: 0;
+}
+
+.b-title__text {
+    color: #fff;
+    font: 700 1.6em/30px Arial,Helvetica,sans-serif;
+    height: 33px;
+}
+
+.coming_soon .b-title__text {
+    margin-left: -12px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    padding-top: 3px;
+    background-position: 0 1px;
+}
+
+.betting_slip .b-title__bg {
+    background: 0 0;
+}
+
+.b-title__text:after, .b-title__text after {
+    background-position: -10px -35px;
+    content: '\20';
+    display: inline-block;
+    height: 35px;
+    vertical-align: top;
+    width: 212px;
+    margin-left: -90px;
+    position: relative;
+    z-index: -5;
+}
+
+.ie7 .b-title__text after {
+    vertical-align: middle;
+}
+
+.b-title_date {
+    background: url(../img/bg_calendar_no-repeat_30x21.png) no-repeat;
+    padding-left: 30px;
+    margin-left: 40px;
+}
+
+.b-title__link {
+    color: #fff;
+    font-weight: 700;
+    margin-right: 12px;
+}
+
+.ie6 .b-title__link, .ie7 .b-title__link {
+    margin-top: -19px;
+}
+
+a:hover.b-title__link {
+    text-decoration: none;
+}
+
+.b-title__sub {
+    color: #fff;
+    font: 700 1.4em Arial,Helvetica,sans-serif;
+    padding: 10px 12px 11px;
+    border: 1px solid #1b1b1b;
+    border-bottom: 0;
+    background: #2e2e2e;
+    background: -moz-linear-gradient(top,rgba(46,46,46,1) 0%,rgba(35,35,35,1) 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(46,46,46,1)),color-stop(100%,rgba(35,35,35,1)));
+    background: -webkit-linear-gradient(top,rgba(46,46,46,1) 0%,rgba(35,35,35,1) 100%);
+    background: -o-linear-gradient(top,rgba(46,46,46,1) 0%,rgba(35,35,35,1) 100%);
+    background: -ms-linear-gradient(top,rgba(46,46,46,1) 0%,rgba(35,35,35,1) 100%);
+    background: linear-gradient(to bottom,rgba(46,46,46,1) 0%,rgba(35,35,35,1) 100%);
+   /* progid:DXImageTransform.Microsoft.gradient( startColorstr='#2e2e2e',endColorstr='#232323',GradientType=0 );*/
+}
+
+p.b-title__sub {
+    font-weight: 400;
+}
+
+.b-title_cont_reg {
+    overflow: hidden;
+}
+
+.tit_arr_ev {
+    display: inline-block;
+    height: 11px;
+    width: 12px;
+    background: url(../img/return_button_arr.png) no-repeat 0 -26px;
+    margin: 0 6px;
+}
+
+.ie7 .tit_arr_ev {
+    position: relative;
+    top: -4px;
+}
+
+.s_title_ev .crate_cupon {
+    height: 16px;
+    font-size: 13px;
+    color: #a5a4a4;
+}
+
+    .s_title_ev .crate_cupon:hover {
+        color: #fff;
+    }
+
+.ie7 .crate_cupon {
+    margin-top: -27px;
+    margin-right: 8px;
+}
+
+.ie7 .s_title_ev .crate_cupon {
+    margin-top: -17px;
+}
+
+.ie7 .betcart-pane-del {
+    margin-top: 0;
+}
+
+.ie7 .title_reg .crate_cupon {
+    margin-top: -19px;
+}
+
+.t_name_l {
+    overflow: hidden;
+    white-space: nowrap;
+    -moz-binding: url(ellipsisxul.xml#ellipsis);
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    max-width: 80%;
+}
+
+.i_print {
+    background: url(../img/print.png) no-repeat 0 0;
+    height: 17px;
+    width: 18px;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    margin-top: -1px;
+}
+
+    .i_print:hover {
+        background-position: 0 100%;
+    }
+
+.print_cell .i_print {
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+.id_refresh_button + .i_print {
+}
+
+.sport_name .s_n {
+    display: none;
+}
+
+    .sport_name .s_n:first-child {
+        display: block;
+    }
+
+.c-content_live .title_link {
+    background: linear-gradient(to bottom,#3F3F3F 0px,#040404 100%) repeat scroll 0 0 transparent;
+    border: 1px solid #3f3f3f;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 1px 1px 3px #000;
+    color: #fff;
+    float: right;
+    font-size: 14px;
+    margin-top: 2px;
+    position: relative;
+    text-decoration: none;
+    position: absolute;
+    top: 4px;
+    right: 6px;
+}
+
+#live_events_running + #live_events_upcoming .b-title_hl .title_link {
+    display: none;
+}
+
+.title_black {
+    background: #262626;
+    background: -moz-linear-gradient(top,rgba(38,38,38,1) 0%,rgba(9,9,9,1) 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(38,38,38,1)),color-stop(100%,rgba(9,9,9,1)));
+    background: -webkit-linear-gradient(top,rgba(38,38,38,1) 0%,rgba(9,9,9,1) 100%);
+    background: -o-linear-gradient(top,rgba(38,38,38,1) 0%,rgba(9,9,9,1) 100%);
+    background: -ms-linear-gradient(top,rgba(38,38,38,1) 0%,rgba(9,9,9,1) 100%);
+    background: linear-gradient(to bottom,rgba(38,38,38,1) 0%,rgba(9,9,9,1) 100%);
+   /* progid:DXImageTransform.Microsoft.gradient( startColorstr='#262626',endColorstr='#090909',GradientType=0 );*/
+    border-bottom: 1px solid #191919 !important;
+}
+
+.no_bold {
+    font-weight: 400;
+}
+
+.menu_top_titles .active {
+    text-decoration: underline;
+}
+
+.t-country_flag {
+    width: 17px;
+    margin-right: 5px;
+    float: left;
+    display: inline-block;
+}
+
+    .t-country_flag img {
+        vertical-align: baseline;
+        margin-top: 2px;
+    }
+
+.events_contein .t-country_flag {
+    float: none;
+}
+
+    .events_contein .t-country_flag img {
+        margin-top: 5px;
+    }
+
+.events_contein .t_name_l a {
+    line-height: 24px;
+}
+
+.events_contein .t_name_l .b-menu__icon {
+    margin: 0 4px 0 0;
+}

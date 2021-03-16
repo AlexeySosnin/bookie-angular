@@ -1,0 +1,30 @@
+.b-text {
+}
+
+.m-text_right {
+    text-align: right;
+}
+
+.m-text_center {
+    text-align: center;
+}
+
+.m-text_left {
+    text-align: left;
+}
+
+.m-text_middle {
+    vertical-align: middle;
+}
+
+.m-text_bold {
+    font-weight: 700;
+}
+
+.m-text_error {
+    color: #ed858c !important;
+}
+
+.l-page__foot .b-text {
+    color: #666;
+}

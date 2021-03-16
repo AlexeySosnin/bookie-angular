@@ -1,0 +1,184 @@
+.header_sub {margin-bottom:10px !important;}
+.nav_header {
+	width:100%;
+	text-align:center;
+
+}
+.nav_header a.active {
+	border-bottom:6px solid #eda720;
+
+}
+.nav_header a.active:after {
+	display: block !important;
+
+
+}
+.nav_header a {
+	display: inline-block !important;
+	float: none;
+}
+.l-page__c_out {
+	width:100%;
+}
+.l-page__c_out .l-page__c {
+	width:100%;
+}
+.l-page__c_out .l-page__c .left {
+	width: calc(100% - 300px);
+	float:left;
+}
+.match-result-title {
+	background: url("assets/img/match-result-title.png") center center no-repeat;
+	width:100%;
+	height:100px;
+	position:relative;
+	border-bottom:2px solid #eda720;
+}
+.match-result-title label {
+	position:absolute;
+	bottom:10px;
+	left:10px;
+	font-size:20px;
+}
+.filter {
+	background: #000000;
+}
+.filter .item {
+	width:calc(20% - 20px);
+	float:left;
+	padding:10px;
+}
+.filter .item label {
+	font-size:13px;
+}
+.filter .item button,
+.filter .item input,
+.filter .item select {
+	width:100%;
+	height:25px;
+	background: #323232;
+	color:#fff;
+	border:none;
+	padding-left:5px;
+	margin-top:5px;
+}
+.filter .item .group select {
+	width:33.33%; float:left;
+}
+.filter .item button {
+	margin-top:20px;
+	cursor: pointer;
+	background:#eda720;
+	font-weight:bold;
+}
+.match-result-table .table-title {
+
+	background: #2d2d2d;
+	background: -moz-linear-gradient(top,#2d2d2d 0%,#1f1f1f 100%);
+	background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#2d2d2d),color-stop(100%,#1f1f1f));
+	background: -webkit-linear-gradient(top,#2d2d2d 0%,#1f1f1f 100%);
+	background: -o-linear-gradient(top,#2d2d2d 0%,#1f1f1f 100%);
+	background: -ms-linear-gradient(top,#2d2d2d 0%,#1f1f1f 100%);
+	background: linear-gradient(to bottom,#2d2d2d 0%,#1f1f1f 100%);
+	margin:0px;
+	padding:0px;
+}
+.match-result-table .table-title div {
+	border-right:1px solid #333232;
+	line-height:35px;
+}
+.match-result-table .table-title div span {
+	margin-left:10px;
+	font-size:13px;
+ }
+
+.match-result-table .table-item div {
+	border-right:1px solid #333232;
+	border-bottom:1px solid #333232;
+	line-height:35px;
+	background:#292828;
+	cursor: pointer;
+}
+.match-result-table .table-item div span {
+	margin-left:10px;
+	font-size:13px;
+ }
+.match-result-table .date {
+	width:calc(15% - 1px); float:left;
+}
+.match-result-table .activity {
+	  width:calc(25% - 1px); float:left;
+}
+.match-result-table .encounter {
+	width:calc(40% - 1px); float:left;
+}
+.match-result-table .score {
+	width:calc(16% + 6px); float:left; border:none;
+} 
+.match-result-table .table-item .table-item-detail {
+	background:#444444;
+	padding:15px;
+}
+.match-result-table .table-item .table-item-detail .content .item {
+	width:calc(50% - 1px);
+	float:left;
+}
+.match-result-table .table-item .table-item-detail .content .item label {
+	padding-left:10px;
+	font-size:13px;
+}
+.match-result-table .table-item .table-item-detail .content .item span {
+	font-size:12px;
+	color:#eda720;
+}
+.l-page__c_out .l-page__c .match-results-page .right {
+	width: 300px;
+	float:right;
+}
+.l-page__c_out .l-page__c .match-results-page .right .match-result-detail-title {
+	background:#444444;
+	padding:20px 10px;
+	color:#fff;
+	font-size:15px;
+}
+.l-page__c_out .l-page__c .match-results-page .right ul li {
+	width:100%;
+	background:#2f2f2f;
+
+	border-bottom: 1px solid #333232;
+}
+.l-page__c_out .l-page__c .match-results-page .right ul li:hover {
+	background:#292828;
+}
+.l-page__c_out .l-page__c .match-results-page .right ul li a {
+	color:#fff;
+	text-decoration:none;
+	font-size:14px;
+	width:100%;
+	display: inline-block;
+	padding:10px;
+	cursor: pointer;
+}
+.page-up {
+	width:50px;
+	height:40px;
+	background: #2d2d2d;
+	background: -moz-linear-gradient(top,#2d2d2d 0%,#1f1f1f 100%);
+	background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#2d2d2d),color-stop(100%,#1f1f1f));
+	background: -webkit-linear-gradient(top,#2d2d2d 0%,#1f1f1f 100%);
+	background: -o-linear-gradient(top,#2d2d2d 0%,#1f1f1f 100%);
+	background: -ms-linear-gradient(top,#2d2d2d 0%,#1f1f1f 100%);
+	background: linear-gradient(to bottom,#2d2d2d 0%,#1f1f1f 100%);
+	margin: 0px;
+	padding: 0px;
+	position: fixed;
+	bottom:10px;
+	right:20px;
+	z-index: 99999;
+	text-align:center;
+	border-radius:6px;
+}
+.page-up img {
+	width:20px;
+	padding-top:10px;
+}

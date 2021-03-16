@@ -1,0 +1,369 @@
+#football-visualisation {
+    font-family: oswald,Arial,sans-serif;
+    margin-bottom: 5px;
+    text-shadow: none;
+    background-image: url(../img/canvas/football-visualisation_bg.png);
+    background-repeat: repeat-x;
+    background-position: left bottom;
+    background-color: #0d110a;
+    border: 1px solid #3b3b3b;
+    position: relative;
+}
+
+.white #football-visualisation {
+    border-color: #414040;
+    background: #152d15;
+    background: -moz-linear-gradient(top,#152d15 0%,#232422 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#152d15),color-stop(100%,#232422));
+    background: -webkit-linear-gradient(top,#152d15 0%,#232422 100%);
+    background: -o-linear-gradient(top,#152d15 0%,#232422 100%);
+    background: -ms-linear-gradient(top,#152d15 0%,#232422 100%);
+    background: linear-gradient(to bottom,#152d15 0%,#232422 100%);
+    
+}
+
+#panel, #effects, #area, #timelapse {
+    position: absolute;
+}
+
+#timelapse {
+    margin-top: -35px;
+}
+
+#panel {
+    background: url(../img/canvas/bg_2.png) no-repeat scroll center center;
+}
+
+#statistics_panel {
+    width: 301px;
+    border-top: 1px solid #3b3b3b;
+    padding: 5px 0 10px;
+}
+
+.white #statistics_panel {
+    color: #b5b5b5;
+    border-color: #414040;
+}
+
+#helper.left_helper {
+    text-align: right !important;
+}
+
+#helper.right_helper {
+    text-align: left !important;
+}
+
+#helper {
+    border-radius: 5px;
+    color: #fff;
+    margin-top: 120px;
+    opacity: .55;
+    padding: 10px 5px;
+    position: absolute;
+    width: 110px;
+    text-align: center;
+}
+
+#main_helper {
+    background: none repeat scroll 0 0 #000;
+    border: 3px solid #00c805;
+    border-radius: 5px;
+    color: #fff;
+    margin-top: 58px;
+    opacity: .5;
+    padding: 10px;
+    position: absolute;
+    width: 236px;
+    text-align: center;
+}
+
+#football-visualisation .left_top {
+    position: absolute;
+    background: url(../img/canvas/left_top.png) no-repeat scroll 0 0 transparent;
+    height: 40px;
+    left: -1px;
+    top: -1px;
+    width: 165px;
+}
+
+.panel_participants {
+    display: none;
+    padding: 10px 0 0;
+    color: #b5b5b5;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.white .panel_participants {
+    display: block;
+}
+
+.t_live td .virtual_field {
+    height: 11px !important;
+    width: 21px !important;
+    padding: 1px !important;
+    border: 1px solid transparent;
+    margin: 2px 10px 0 0 !important;
+    background-image: url(../img/canvas/field_small.png);
+    background-repeat: no-repeat;
+}
+
+.t_live.t_live_odd td .virtual_field.enabled {
+    background-position: 1px 0;
+}
+
+.t_live.t_live_even td .virtual_field.enabled {
+    background-position: 1px -26px;
+}
+
+.t_live.t_live_odd td .virtual_field.disabled {
+    background-position: 1px -13px;
+}
+
+.t_live.t_live_even td .virtual_field.disabled {
+    background-position: 1px -39px;
+}
+
+.t_live td .virtual_field.enabled.active, .t_live td .virtual_field.enabled:hover {
+    border: 1px solid #4e8034;
+}
+
+.t_live td .virtual_field.enabled:hover {
+    cursor: pointer;
+}
+
+.t_live td .virtual_field.enabled.active:hover {
+    cursor: default;
+}
+
+.b-menu__link .virtual_field {
+    height: 11px !important;
+    width: 21px !important;
+    background-image: url(../img/canvas/field_small.png);
+    background-repeat: no-repeat;
+    margin: 2px 0 0 0;
+    -moz-opacity: .6;
+    -khtml-opacity: .6;
+    opacity: .6;
+}
+
+    .b-menu__link .virtual_field.enabled {
+        background-position: 0 -1px;
+    }
+
+    .b-menu__link .virtual_field.disabled {
+        background-position: 0 -14px;
+    }
+
+.not_visible {
+    display: none;
+}
+
+.toggler {
+    z-index: 100;
+    cursor: pointer;
+}
+
+.scoreboart_statistic_line {
+    height: 35px;
+    position: relative;
+    padding: 5px 20px 0;
+}
+
+    .scoreboart_statistic_line.teams span {
+        display: inline;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .scoreboart_statistic_line h1 {
+        font-size: 12px;
+        text-align: center;
+        padding: 0 0 1px;
+        font-weight: 400;
+        text-transform: uppercase;
+        font-weight: 300;
+    }
+
+    .scoreboart_statistic_line .statistics {
+        border: 1px solid #3b3b3b;
+        height: 6px;
+        background-color: #4e8034;
+    }
+
+.white .scoreboart_statistic_line .statistics {
+    border-color: #414040;
+}
+
+.scoreboart_statistic_line .statistics div {
+}
+
+    .scoreboart_statistic_line .statistics div.home {
+        width: 48%;
+        height: 100%;
+        background-color: #fcb42b;
+        color: #fff;
+        text-align: left;
+    }
+
+    .scoreboart_statistic_line .statistics div.away {
+        color: #fff;
+        text-align: right;
+        margin-top: -20px;
+    }
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.scores_status {
+    background: 0 0 !important;
+    height: 17px;
+    padding-top: 3px;
+    width: 301px;
+    font-size: 12px;
+}
+
+#menu {
+    height: 20px;
+}
+
+    #menu .toggler {
+        background-color: #3e3e3e;
+        border: 1px solid #d6d6d6;
+        color: #fff;
+        margin: 0 6px;
+        padding: 2px;
+        text-align: center;
+    }
+
+.timetable {
+    height: 27px;
+    background: url(../img/canvas/timeline2.png) no-repeat top center;
+    width: 301px;
+    margin: 10px 0 15px;
+    position: relative;
+}
+
+    .timetable .time {
+        width: 0;
+        background-color: #1b6d54;
+        height: 14px;
+        position: absolute;
+        opacity: .5;
+        top: 11px;
+        left: 27px;
+    }
+
+    .timetable .moment {
+        width: 0;
+        height: 100%;
+    }
+
+        .timetable .moment img {
+            position: absolute;
+            top: 6px;
+        }
+
+    .timetable .ht {
+        width: 18px;
+        height: 25px;
+        position: absolute;
+        bottom: 0;
+        left: 141px;
+        background: url(../img/canvas/ht.png) no-repeat top center;
+    }
+
+.scoreboard_panel {
+    font-size: 12px;
+}
+
+.panel_live {
+    height: 154px;
+    padding: 0 19px 0 20px;
+}
+
+.panel_moments {
+    height: 200px;
+    overflow: auto;
+}
+
+.score_panel {
+    padding: 0 23px 21px 24px;
+    text-align: center;
+    position: relative;
+    font-weight: 400;
+}
+
+    .score_panel .score_panel_participant {
+        color: #b5b5b5;
+        font-size: 16px;
+        padding: 10px 0 0;
+    }
+
+        .score_panel .score_panel_participant span {
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .score_panel .score_panel_participant.g-right {
+            text-align: right;
+        }
+
+        .score_panel .score_panel_participant.g-left {
+            text-align: left;
+        }
+
+.score_panel_score {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin: 0 0 0 -42px;
+    width: 83px;
+    background: #1b1b1b;
+    border-left: 1px solid #414141;
+    border-right: 1px solid #414141;
+    border-bottom: 1px solid #414141;
+    border-radius: 0 0 4px 4px;
+    color: #a2a2a2;
+    font-size: 13px;
+    padding: 0 0 1px;
+}
+
+.score_panel_score_away {
+    width: 40px;
+    border-left: 1px solid #2e2e2e;
+    background: #242424;
+    border-radius: 0 0 4px 0;
+}
+
+.score_panel_score_home {
+    width: 40px;
+    border-right: 1px solid #2e2e2e;
+    background: #242424;
+    margin: 0 1px 0 0;
+    border-radius: 0 0 0 4px;
+}
+
+.open_statistics {
+    display: block;
+    width: 50px;
+    height: 17px;
+    position: absolute;
+    left: 50%;
+    bottom: 8px;
+    margin: 0 0 0 -25px;
+    background-image: url(../img/canvas/open_statistics_bg.png);
+    background-repeat: no-repeat;
+    background-position: top left;
+}
+
+    .open_statistics:hover {
+        background-position: bottom left;
+    }

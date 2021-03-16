@@ -1,0 +1,19 @@
+.header_sub {margin-bottom:10px !important;}
+.nav_header {
+	width:100%;
+	text-align:center;
+
+}
+.nav_header a.active {
+	border-bottom:6px solid #eda720;
+
+}
+.nav_header a.active:after {
+	display: block !important;
+
+
+}
+.nav_header a {
+	display: inline-block !important;
+	float: none;
+}

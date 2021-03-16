@@ -1,0 +1,40 @@
+
+<header class="l-page__head d-head g-clearfix">
+    <div class="l-page_header">
+        <div class="header_sub">
+           <app-header></app-header>
+            <div class="g-left"></div>
+             
+        </div>
+    </div>
+    <div class="top_winner_window" id="top_winner_window"></div>
+</header>
+<article class="l-page__l g-left" id="left_col">
+  <div class="top_leagues custom_top_leagues">
+      <form class="search_form" name="search_form">
+          <div class="b-search">
+              <input type="text" class="b-search__input g-left autoclear"
+                  (input)="onSearchChange($event.target.value)" name="searchbox" id="searchbox"
+                  [ngModel]="searchkey"
+                  placeholder="Arama...">
+              <button type="button" class="button_search">
+              </button>
+          </div>
+      </form>
+      <div class="b-title__bg title_reg title_top_leagues">
+          <h1 class="bet_slip_txt" style="cursor: pointer" (click)="live()">
+              <span class="">{{'match_results' | translate}}</span>
+          </h1>
+      </div>
+      <app-favorite-league></app-favorite-league>
+      <app-bets></app-bets>
+      </div>
+
+  <div class="d-left"></div>
+</article>
+<app-coupon isShow="false"></app-coupon>
+
+
+<div>
+    <app-center isShow="{{isShow}}"></app-center>
+</div>

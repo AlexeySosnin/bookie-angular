@@ -1,0 +1,165 @@
+<div class="loader new-loader" title="5" *ngIf="!isLoading">
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px" y="0px" width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;"
+        xml:space="preserve">
+        <rect x="0" y="13" width="4" height="5" fill="#333">
+            <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0s" dur="0.6s"
+                repeatCount="indefinite" />
+            <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0s" dur="0.6s"
+                repeatCount="indefinite" />
+        </rect>
+        <rect x="10" y="13" width="4" height="5" fill="#333">
+            <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0.15s" dur="0.6s"
+                repeatCount="indefinite" />
+            <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0.15s" dur="0.6s"
+                repeatCount="indefinite" />
+        </rect>
+        <rect x="20" y="13" width="4" height="5" fill="#333">
+            <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0.3s" dur="0.6s"
+                repeatCount="indefinite" />
+            <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0.3s" dur="0.6s"
+                repeatCount="indefinite" />
+        </rect>
+    </svg>
+</div>
+<div class="top_winner_window" id="top_winner_window" style="display: block;">
+    <div class="wrapper anonumous_bet">
+        <div class="wrapper_mid">
+            <div class="closer"></div>
+            <table class="content">
+                <colgroup>
+                    <col style="width:100px;">
+                    <col style="width:120px;">
+                    <col style="width:350px;">
+                    <col style="width:150px;">
+                    <col style="width:80px;">
+                    <col class="">
+                    <col style="width:80px;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>Bahis</th>
+                        <th>Tarih</th>
+                        <th>Olay</th>
+                        <th>Bahis</th>
+                        <th class="numbers_title" style="padding-left:0px">Oranlar</th>
+                        <th style="padding-right:11px !important; text-align:center !important;">Sonuç</th>
+                        <th style="padding-right:11px !important; text-align:center !important;">Statüs</th>
+                        <th (click)="closeDialog()"
+                            style="cursor:pointer; padding-right:11px !important; text-align:center !important;">X</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="7" class="pad_0">
+                            <div class="cover_table">
+                                <table class="content_inside">
+                                    <colgroup>
+                                        <col style="width:100px;">
+                                        <col style="width:120px;">
+                                        <col style="width:350px;">
+                                        <col style="width:150px;">
+                                        <col style="width:80px;">
+                                        <col class="">
+                                        <col style="width:80px;">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <td><b>{{detail.id}}</b></td>
+                                            <td><b>{{detail.created_at_for_humans}}</b></td>
+                                            <td>
+                                                <b>
+                                                    {{detail.state_name}}
+                                                </b>
+                                            </td>
+                                            <td>
+                                                <b> TL {{detail.possible_win}}
+                                                </b>
+                                            </td>
+                                            <td class="numbers_title"></td>
+                                            <td class="numbers_title"></td>
+                                            <td class="numbers_title"></td>
+                                        </tr>
+                                        <ng-container *ngIf="isLoading">
+                                            <ng-container *ngFor="let item of detail.odds">
+                                                <tr class="emphasized">
+
+                                                    <td rowspan="20" class="status_table_cell">
+                                                        <span class="status_cell win"></span>
+                                                        <span class="status_ptnding">
+                                                            {{detail.status_name}}
+                                                        </span>
+                                                        <p class="money_out">TL 12 400.00 xxx</p>
+                                                    </td>
+                                                    <td>
+                                                        {{detail.created_at_for_humans}}
+                                                    </td>
+                                                    <td>
+                                                        {{item.name}}<br> 1:0&nbsp; 2:0&nbsp; 3:0&nbsp; at bet-slip
+                                                        submission
+
+                                                    </td>
+                                                    <td>
+                                                        Üstü/Altı <br>Üst 4
+                                                    </td>
+                                                    <td class="numbers_title">
+                                                        4.10 </td>
+
+                                                    <td class="total">
+                                                        3:2
+                                                    </td>
+                                                    <td style="padding-right:6px;">
+                                                        <div class="b-user-grid__cell_inn">
+                                                            <span class="b-result m-result_positive">
+                                                                {{item.outcome_name}}
+                                                            </span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </ng-container>
+
+                                        </ng-container>
+
+                                        <tr>
+                                            <td colspan="2">Number of bets:</td>
+                                            <td colspan="4" class="total">
+                                                1
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="2">
+                                                Koyulan bahis:
+                                            </td>
+                                            <td colspan="4" class="total">
+                                                TL 4 000.00
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="2">
+                                                Oranlar
+                                            </td>
+                                            <td colspan="4" class="total">
+                                                4.10
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="2">
+                                                Sonuç:
+                                            </td>
+                                            <td colspan="4" class="total">
+                                                TL 12 400.00 </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

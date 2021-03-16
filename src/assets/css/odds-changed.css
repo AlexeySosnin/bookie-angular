@@ -1,0 +1,24 @@
+.b-odds-changed {
+    font: 1.4em Arial,Helvetica,sans-serif;
+    padding-top: 21px;
+    width: 55%;
+}
+
+.b-odds-changed__item {
+    line-height: 18px;
+    padding-right: 10px;
+}
+
+.b-odds-changed__radio {
+    vertical-align: middle;
+}
+
+    .b-odds-changed__radio[checked] + .b-odds-changed__label {
+        color: #a5a5a5;
+    }
+
+.b-odds-changed__label {
+    margin-left: 5px;
+    color: #6e6f6f;
+    vertical-align: middle;
+}

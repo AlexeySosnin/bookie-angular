@@ -1,0 +1,27 @@
+<nav class="nav_header">
+    <a id="nav-mainAct"  class="{{getActive('dashboard')}}"  routerLink="/dashboard" >
+        <span class="nav_left"></span>
+        <span>{{'sports' | translate}}</span>
+        <span class="nav_right"></span>
+    </a>
+    <a id="nav-liveAct"  class="{{getActive('live')}}" routerLink="/live" >
+        <span class="nav_left"></span>
+        <span>{{'live_matches' | translate}}</span>
+        <span class="nav_right"></span>
+    </a>
+    <a id="nav-liveAct"  class="{{getActive('result')}}"   routerLink="/result" >
+        <span class="nav_left"></span>
+        <span>{{'match_results2' | translate}}</span>
+        <span class="nav_right"></span>
+    </a>
+    <a id="nav-liveAct" class="{{getActive('history')}}"  routerLink="/history">
+        <span class="nav_left"></span>
+        <span>{{'my_coupons' | translate}}</span>
+        <span class="nav_right"></span>
+    </a>
+    <a id="nav-liveAct" class="{{getActive('calendar')}}"  routerLink="/calendar">
+        <span class="nav_left"></span>
+        <span>{{'match_calendar' | translate}}</span>
+        <span class="nav_right"></span>
+    </a>
+</nav>

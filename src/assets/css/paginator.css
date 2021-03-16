@@ -1,0 +1,34 @@
+.b-paginator {
+    background: #353535;
+    margin: 0 5px 5px;
+    border-top: none;
+    z-index: 0;
+}
+
+.ie6 .b-paginator, .ie7 .b-paginator, .ie8 .b-paginator {
+    z-index: -10 !important;
+}
+
+.b-paginator__item {
+    border-left: solid 1px #3a3a3a;
+    color: #fff;
+    font-size: 1.3em;
+    line-height: 120%;
+    text-align: center;
+    width: 20px;
+    cursor: pointer;
+}
+
+.b-paginator__item {
+    padding: 3px 5px;
+    display: inline-block;
+    width: auto;
+}
+
+    .b-paginator__first, .b-paginator__first + .b-paginator__item, .b-paginator__item:first-child, .b-paginator__last {
+        border-left: 0;
+    }
+
+.b-paginator__current {
+    font-weight: 900;
+}

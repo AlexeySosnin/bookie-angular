@@ -1,0 +1,102 @@
+<div class="top_winner_window" id="top_winner_window" style="display: block;">
+  <div class="wrapper anonumous_bet">
+    <div class="wrapper_mid">
+      <div class="closer"></div>
+      <table class="content">
+        <colgroup>
+          <col style="width:100px;">
+          <col style="width:120px;">
+          <col style="width:350px;">
+          <col style="width:150px;">
+          <col style="width:80px;">
+          <col class="">
+          <col style="width:80px;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Bahis111</th>
+            <th>Tarih</th>
+            <th>Olay</th>
+            <th>Bahis</th>
+            <th (click)="closeDialog()" style="cursor: pointer;text-align: right;padding-right:10px;">X </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="7" class="pad_0">
+              <div class="cover_table">
+                <table class="content_inside">
+                  <colgroup>
+                    <col style="width:100px;">
+                    <col style="width:120px;">
+                    <col style="width:350px;">
+                    <col style="width:150px;">
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <td><b>{{detail.id}}</b></td>
+                      <td><b>{{detail.created_at_for_humans}}</b></td>
+                      <td>
+                        <b>
+                          {{detail.state_name}}
+                        </b>
+                      </td>
+                      <td>
+                        <b> TL {{detail.possible_win}}
+                        </b>
+                      </td>
+
+                    </tr>
+                    <tr class="emphasized">
+                      <td colspan="4">
+                        <table>
+                          <tr *ngFor="let item of detail.odds">
+
+                            <td class="status_table_cell">
+                              <span class="status_cell win"></span>
+                              <span class="status_ptnding">
+                                {{item.home_team}} - {{item.away_team}}
+
+                              </span>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td class="numbers_title">
+                            </td>
+
+                            <td class="total">
+                              3:2
+                            </td>
+                            <td style="padding-right:6px;">
+                              <div class="b-user-grid__cell_inn">
+                                <span class="b-result m-result_positive">
+                                  {{item.outcome_name}}
+                                </span>
+                              </div>
+                            </td>
+                          </tr>
+
+                        </table>
+                      </td>
+
+
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

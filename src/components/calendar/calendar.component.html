@@ -1,0 +1,150 @@
+ 
+<header class="l-page__head d-head g-clearfix">
+    <div class="l-page_header">
+        <div class="header_sub">
+           <app-header></app-header>
+            <div class="g-left"></div>
+             
+        </div>
+    </div>
+    <div class="top_winner_window" id="top_winner_window"></div>
+</header>
+<div _ngcontent-oxi-c223="" class="l-page">
+    
+    <span id="live_type" class="live_soccer up_live"></span>
+    <div class="l-page__body d-main g-clearfix">
+    
+        <div class="l-page__body_u">
+            <article class="l-page__l g-left" id="left_col">
+                <app-favorite></app-favorite>
+                <app-match></app-match>
+            </article>
+            <article class="l-page__r g-right">
+
+                <app-coupon isShow="true"></app-coupon>
+            </article>
+            <article class=" l-page__c_out" id="main_content_article">
+                <div id="main_content">
+                    <div id="content" class="l-page__c">
+                        <article class="c-content_left  c-content_live">
+                            <div class="events_contein">
+                                <div class="b-title_upcoming b-title__bg title_contein_box">
+                                    <h1 class="bet_slip_txt">
+                                        <i></i>
+                                        <span>{{'upcoming_live_events' | translate}}</span>
+                                    </h1>
+                                </div>
+                                <div class="b-bet-grid__one_ev g-clearfix">
+                                    <div class="upcoming_nav">
+                                        <table cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="3"></td>
+                                                    <td colspan="2">
+                                                        <div class="u_dd_sports">
+                                                            <select name="bet_stat" (change)="search()"
+                                                                [formControl]="optSport" id="bet_stat"
+                                                                class="b-filters__select b-select">
+                                                                <option *ngFor="let item of sport; let i = index"
+                                                                    value="{{item.id}}">
+                                                                    {{item.name}}</option>
+                                                            </select>
+
+                                                        </div> 
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <div class="u_search">
+                                                            <input class="autoclear search_word"
+                                                                [ngModel]="searchkey"
+                                                                (keypress)="search()" [formControl]="inputSearch"
+                                                                placeholder="Search..." type="text">
+                                                            <a id="u_search_button" class="u_search_button"
+                                                                (click)="search()">
+                                                                <i></i>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="d_week">
+
+
+                                                    <ng-container *ngFor="let it of calendar;let i = index;">
+                                                        <ng-container *ngIf="i<8">
+                                                            <td>
+                                                                <a id="1589148000" (click)="getEvents(it)"
+                                                                    class="{{getClass(it.date)}}">
+                                                                    <span class="u_date">{{it.date}}</span>
+                                                                    <span class="u_day">{{'day' | translate}}</span>
+                                                                </a>
+                                                            </td>
+
+                                                        </ng-container>
+
+                                                    </ng-container>
+
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <div id="subcontent">
+                                        <div class="up_content">
+                                            <table class="b-bet-grid" cellpadding="0" cellspacing="0">
+                                                <colgroup>
+                                                    <col width="185">
+                                                    <col>
+                                                    <col width="80">
+                                                </colgroup>
+                                                <tbody>
+                                                    <tr class="b-bet-grid__even"
+                                                        *ngFor="let k of newList;let i = index;">
+                                                        <td class="b-bet-grid__cell">
+                                                            <span class="cell_bord_l m-menu__link_s" >
+                                                                <i class="b-menu__icon g-stack"></i>
+                                                                <b class="m-menu_name_sport">{{k.sport.name}}</b>
+                                                            </span>
+                                                        </td>
+                                                        <td class="b-bet-grid__cell">
+                                                            <span class="cell_bord_l">
+                                                                <span class="b-cell_hover b-cell_hover_up">
+                                                                    <b class="g-ellipsis">
+                                                                        <div class="b-bet-live_name">
+                                                                            <a style="cursor: pointer;" (click)="detail(k)">{{k.name}}</a>
+                                                                        </div>
+                                                                        <div class="b-bet-live_lg">
+                                                                            <span>{{k.region.name}}</span>
+                                                                            <span class="league_name_arw">››</span>
+                                                                            <span
+                                                                                title="2nd League">{{k.league.name}}</span>
+                                                                        </div>
+                                                                    </b>
+                                                                </span>
+                                                            </span>
+                                                        </td>
+                                                        <td class="b-bet-grid__cell">
+                                                            <span
+                                                                class="m-text_center b-cell_hover_up">{{k.start_at_hour}}</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div id="main_content_sibling"></div>
+        <div style="clear:both;"></div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="live-center-iframe" >
+    
+</div>
+
+<div class="live-center-iframe" *ngIf="getisShowLive()">
+    <div class="iframe-text" *ngIf="showBlur">
+        {{blurText}} Yarı Tamamlandı
+    </div>
+    <div class="blur"  *ngIf="showBlur"></div>
+    <iframe style="height: 100%;min-height:160px" scrolling="no" *ngIf="!isRefreshing" [src]="frameUrl" id="iframeid" frameborder="0"></iframe>
+</div>

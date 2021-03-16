@@ -1,0 +1,25 @@
+<div class="top_leagues custom_top_leagues">
+    <div class="b-title__bg title_reg title_top_leagues">
+        <span class="bet_slip_txt" style="cursor: pointer">
+            <h1 class="">Favorilerim</h1>
+        </span>
+    </div>
+    <div class="live-sidebar">
+        <ul>
+            <li *ngFor="let item of favoriEventFunc()">
+                <a  (click)="getEventDetail(item)">
+                    <div class="item">
+                        <div class="text">
+                            <div class="match-name">{{item.name}}</div>
+                            <div class="match-detail"><span>{{item.score}}</span> {{item.current_minute}} {{item.is_second_half}} </div>
+                        </div>
+                        <div class="star">
+                            <button class="btn-favorite active"  (click)="deleteFavorite(item)" style="color:#ebbc3e!important;"><i class="fa fa-star"></i></button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

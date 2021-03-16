@@ -1,0 +1,13 @@
+    <?xml version="1.0"?>
+    <bindings xmlns="www.mozilla.org/xbl" xmlns:xbl="www.mozilla.org/xbl" xmlns:xul="www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+        <binding id="ellipsis">
+            <content>
+                <xul:window>
+                    <xul:description crop="end" xbl:inherits="value=xbl:text">
+                        <children/>
+                    </xul:description>
+                </xul:window>
+            </content>
+     
+        </binding>
+    </bindings>

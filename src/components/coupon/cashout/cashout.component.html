@@ -1,0 +1,35 @@
+<div class="c-out">
+    <div class="top" *ngIf="cashout">
+        <label>Bozdurabileceğiniz bahisler <span>{{cashout.length}}</span></label>
+    </div>
+    <div class="item" *ngFor="let item of cashout;let k = index;">
+        <div class="title">
+            {{item.state_name}}
+        </div>
+        <div class="content">
+            <div class="item" *ngFor="let detail of item.odds">
+                <div class="status">{{'match_results' | translate}}</div>
+                <div class="statistics">{{detail.name}}</div>
+                <div class="rate">{{detail.price}}</div>
+                <div class="clearfix"></div>
+            </div>
+            
+        </div>
+        <div class="bottom">
+            <div class="left">
+                <h6>{{'quantity' | translate}}</h6>
+                <label>TRY {{item.stake}}</label>
+            </div>
+            <div class="center">
+                <h6>{{'gain' | translate}} <br>{{'quantity' | translate}}ı</h6>
+                <label>TRY {{item.possible_win}}</label>
+            </div>
+            <div class="right" style="cursor:pointer" (click)="cashOut(item)">
+                <h6>{{'break_the_bet' | translate}}</h6>
+                <label>{{item.amount}} TRY</label>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+   
+</div>

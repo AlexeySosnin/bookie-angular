@@ -1,0 +1,141 @@
+.d-casino {
+    background: #000 url(../img/bg_back-casino_no-repeat_1490x900.html) no-repeat 50% 0;
+}
+
+.d-poker {
+    background: #000 url(../img/bg_back-poker_no-repeat_1490x1000.html) no-repeat 50% 0;
+}
+
+.d-promotions {
+    background: #000 url(../img/bg_back-poker_no-repeat_1490x1000.html) no-repeat 50% 0;
+}
+
+.d-poker-center-top,
+.d-poker-center,
+.d-promotions-center {
+    -webkit-box-shadow: 3px 5px 9px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 3px 5px 9px rgba(0, 0, 0, .5);
+    -ms-box-shadow: 3px 5px 9px rgba(0, 0, 0, .5);
+    box-shadow: 3px 5px 9px rgba(0, 0, 0, .5);
+    margin-bottom: 15px;
+    padding: 21px 0 0 17px;
+    width: 730px;
+}
+
+.d-poker-center-top {
+    background: url(../img/poker/img_poker-center-top_503x227.html) no-repeat;
+    height: 227px;
+    padding: 0;
+    position: relative;
+    width: 503px;
+}
+
+.d-poker-center-top>a {
+    display: block;
+    height: 80px;
+    left: 290px;
+    position: absolute;
+    top: 80px;
+    text-indent: -9999px;
+    width: 190px;
+}
+
+.d-poker-center {
+    background: url(../img/poker/img_poker-center_747x161.html) no-repeat;
+    height: 140px;
+}
+
+.d-promotions-center {
+    background: url(../img/promotions/img_promotions-center_747x227.html) no-repeat;
+    height: 206px;
+}
+
+.d-poker-center>h1,
+.d-promotions-center>h1 {
+    color: #e3cd00;
+    font: 900 5em arial black, Arial, Helvetica, sans-serif;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, .75);
+}
+
+.d-poker-center>p,
+.d-promotions-center>p {
+    color: #fff;
+    font: 1.6em/1.125 Arial, Helvetica, sans-serif;
+    width: 290px;
+}
+
+.d-left_col {
+    position: relative;
+    z-index: 5;
+    background: #000;
+}
+
+.d-page-body-inner {
+    background: #0f3a1a;
+    background: repeat-x;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAIgCAMAAABzpPMBAAACxFBMVEUPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhoPOhptD1yTAAAA63RSTlMBAgMEBQYHCAkKCwwNDg8QERITFBUWFxgZGhscHR8gISIjJCUmJykqKywuLzAxMzQ1Njc4OTo7PD0+P0BBQkNERkdJSktMTU5PUFFTVVZXWFlaW1xeX2BhYmNkZWZnaGlqa2xtbm9xcnN0dXd4eXp7fH1+f4GCg4SFh4iJioyNjo+QkZOUlZaYmZqbnJ2en6ChoqOlpqeoqaqrra6vsLGys7S1t7i5uru8vb6/wMHCw8TFxsfIycrLzM3Oz9DR0tPU1dbX2Nna29zd3t/g4eLj5OXm5+jp6uvs7e7v8PHy8/T19vf4+fr7/P3+Dt875gAAAHFJREFUOMvVklEKgDAMQyf0Rl7e0xk//JA0yVT8krHSJq/r0NVWa40fLLz05zUkg3GZQnBxm7MK62kFw4M4NP/qyDVIUfeMey1NVSZF5rU3s+PBND03kzmf9fQv7yb5/+LneN4r3/aQqel99Rt4n6PVDtGT84Ey8igMAAAAAElFTkSuQmCC);
+    -khtml-background-size: auto 100%;
+    -moz-background-size: auto 100%;
+    -o-background-size: auto 100%;
+    -webkit-background-size: auto 100%;
+    background-size: auto 100%;
+    margin: 0 7px;
+    padding: 10px;
+}
+
+.ie6 .d-page-body-inner,
+.ie7 .d-page-body-inner .ie8 .d-page-body-inner {
+    background: 0 0;
+}
+
+.d-col-right {
+    border: 1px solid #3b3b3b;
+    overflow: hidden;
+    background-color: #1a1a1a;
+}
+
+.d-clock {
+    font: 700 100.01%/36px Verdana, Geneva, Arial, Helvetica, sans-serif;
+    margin-right: -9px;
+    margin-left: 754px;
+    height: 44px;
+    padding: 0 12px 0 9px;
+}
+
+.d-clock__item:first-child {
+    color: #fff;
+    font-size: 1.4em;
+}
+
+.d-clock__item {
+    color: #fff;
+    font-size: 1.2em;
+}
+
+@media all and (-webkit-min-device-pixel-ratio:0) {
+    .b-box__content_act .g-shadow_0_0_10.b-user-grid__wrap {
+        margin-left: -1px;
+    }
+}
+
+.ie9 .b-box__content_act .g-shadow_0_0_10.b-user-grid__wrap {
+    margin-left: -1px;
+}
+
+.c-max-width {
+    float: left;
+}
+
+.c-max-width_30 {
+    max-width: 30%;
+}
+
+.c-max-width_60 {
+    max-width: 60%;
+}
+
+.c-max-width+.tit_arr_ev {
+    float: left;
+    margin-top: 4px;
+    margin: 2px 4px;
+}

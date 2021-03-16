@@ -1,0 +1,187 @@
+<header class="l-page__head d-head g-clearfix">
+    <div class="l-page_header">
+        <div class="header_sub">
+            <app-header></app-header>
+            <div class="g-left"></div>
+            <form action="/search" method="post" class="search_form" name="search_form">
+                <div class="b-search">
+                    <input type="text" class="b-search__input g-left autoclear"
+                        (input)="onSearchChange($event.target.value)" name="searchbox" id="searchbox"
+                        [ngModel]="searchkey" placeholder="Arama.." />
+                    <button type="button" class="button_search"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="top_winner_window" id="top_winner_window"></div>
+</header>
+<article class="l-page__l g-left" id="left_col">
+    <div class="top_leagues custom_top_leagues">
+        <form class="search_form" name="search_form">
+            <div class="b-search">
+                <input type="text" class="b-search__input g-left autoclear"
+                    (input)="onSearchChange($event.target.value)" name="searchbox" id="searchbox"
+                    placeholder="Arama..." />
+                <button type="button" class="button_search"></button>
+            </div>
+        </form>
+        <div class="b-title__bg title_reg title_top_leagues">
+            <h1 class="bet_slip_txt" style="cursor: pointer" (click)="dashboard()">
+                <span class="">{{ 'upcoming_matches' | translate }}</span>
+            </h1>
+        </div>
+        <app-favorite-league></app-favorite-league>
+        <app-bets></app-bets>
+    </div>
+
+    <div class="d-left"></div>
+</article>
+<app-coupon></app-coupon>
+<article class="l-page__c_out" id="main_content_article">
+    <div class="loader new-loader" title="5" *ngIf="!isLoading">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px" y="0px" width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;"
+            xml:space="preserve">
+            <rect x="0" y="13" width="4" height="5" fill="#333">
+                <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0s" dur="0.6s"
+                    repeatCount="indefinite" />
+                <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0s" dur="0.6s"
+                    repeatCount="indefinite" />
+            </rect>
+            <rect x="10" y="13" width="4" height="5" fill="#333">
+                <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0.15s" dur="0.6s"
+                    repeatCount="indefinite" />
+                <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0.15s" dur="0.6s"
+                    repeatCount="indefinite" />
+            </rect>
+            <rect x="20" y="13" width="4" height="5" fill="#333">
+                <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0.3s" dur="0.6s"
+                    repeatCount="indefinite" />
+                <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0.3s" dur="0.6s"
+                    repeatCount="indefinite" />
+            </rect>
+        </svg>
+    </div>
+    <div id="main_content" *ngIf="isLoading">
+        <div id="content" class="l-page__c">
+            <input type="hidden" class="is_today" name="is_today" value="" />
+            <div class="events_contein">
+                <h1 class="title_eve title_black">
+                    <div class="s_title_ev">
+                        <table width="100%">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="t_name_l m-menu__link_s">
+                                            <a style="cursor: pointer" (click)="getSportEvent(matchDetail.sport)">
+                                                {{ matchDetail.sport.name }}</a>
+                                            <span class="tit_arr_ev"></span>
+                                            <a style="cursor: pointer" (click)="getRegionEvent(matchDetail.region)">
+                                                {{ matchDetail.region.name }}</a>
+                                            <span class="tit_arr_ev"></span>
+                                            <a style="cursor: pointer" (click)="getLeagueEvent(matchDetail.league)">
+                                                {{ matchDetail.league.name }}</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a id="return_link" (click)="onBack()" class="crate_cupon g-round g-right">
+                                            <i></i>
+                                            <span>{{ 'back' | translate }}</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </h1>
+                <div class="one_ev_st">
+                    <div class="one_ev_st_l g-ellipsis">{{ matchDetail.name }}</div>
+                    <div class="one_ev_st_r">
+                        <div>{{ matchDetail.start_at_date }} {{ matchDetail.start_at_hour }}</div>
+                    </div>
+                </div>
+                <table class="table_groups_markets">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="{{ getClass('all') }}" (click)="changeActiveTab('all')"
+                                    data-group_name="all" data-markets="" data-scopes="">
+                                    {{ 'all_markets' | translate }}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="{{ getClass('main') }}" (click)="changeActiveTab('match')"
+                                    data-group_name="main" data-markets="1x2" data-scopes="">
+                                    {{ 'main_markets' | translate }}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="{{ getClass('handicap') }}" (click)="changeActiveTab('handicap')"
+                                    data-group_name="handicap" data-markets="ah,ou" data-scopes="">
+                                    {{ 'handicap_markets' | translate }}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="{{ getClass('markets') }}" (click)="changeActiveTab('total')"
+                                    data-group_name="*" data-markets="gng" data-scopes="">
+                                    {{ 'goal_markets' | translate }}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="{{ getClass('half') }}" (click)="changeActiveTab('half')"
+                                    data-group_name="only_market" data-markets="1x2" data-scopes="1h,2h">
+                                    {{ 'half_markets' | translate }}
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <ng-container *ngFor="let live of lives; let r = index">
+                    <div class="b-title title_contein_box drop_title 1x2 fe">
+                        <h1 class="bet_slip_txt">
+                            {{ live.name }}
+                        </h1>
+                    </div>
+                    <div class="date_head 1x2 fe">
+                        <div
+                            class="b-bet-grid__out b-bet-grid__one_ev page-rate-list b-bet-grid__out_last g-round_b sport_-id">
+                            <ng-container *ngIf="live.odds.length < 4">
+                                <div class="content">
+                                    <div class="item-col" *ngFor="let event of live.odds; let k = index">
+                                        <div class="rate-item">
+                                            <div class="left">{{ event.orjName }} {{ event.name }}</div>
+                                            <div class="right">
+                                                <span [ngClass]="getEventIsSelected(event)"
+                                                    *ngIf="!showLock(live, event)" (click)="selectedEvent(live, event)">{{
+                                                    event.price
+                                                }}</span>
+                                                <img *ngIf="showLock(live, event)" src="assets/img/lock.png" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <ng-container *ngIf="live.odds.length > 3">
+                                <div class="content special">
+                                    <div class="item-col" *ngFor="let event of live.odds; let k = index">
+                                        <div class="rate-item">
+                                            <div class="left">{{ event.orjName }} {{ event.name }}</div>
+                                            <div class="right">
+                                                <span [ngClass]="getEventIsSelected(event)"
+                                                    *ngIf="!showLock(live, event)"
+                                                    (click)="selectedEvent(live, event)">{{ event.price }}</span>
+                                                <img *ngIf="showLock(live, event)" src="assets/img/lock.png" />
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</article>

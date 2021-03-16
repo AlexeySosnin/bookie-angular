@@ -1,0 +1,76 @@
+<aside id="left-menu" class="g-clearfix">
+    <div class="b-title__bg title_reg sports_title">
+        <span class="bet_slip_txt">
+            <span class="dec_txt">{{'live_matches' | translate}}</span>
+        </span>
+    </div>
+    <div class="d-left_col">
+        <ul id="multiple" class="b-menu m-menu_sport  g-js m-menu-specials left-bar" data-accordion-group>
+            <li class="b-menu__item m-menu__item_first" *ngFor="let item of sport; let i = index" data-accordion>
+                <a class="b-menu__link m-menu__link_s" (click)="getRegions(item)" data-control>
+                    <label class="new-side-icon">
+                        <img src="assets/img/icons/{{item.type}}.svg">
+                    </label>
+                    <b class="m-menu_name_sport"> {{item.name | slice:0:18}}{{getCheckLength(item.name)}} </b>
+                    <span class="m-menu-down">
+                        <label class="down-badge">{{item.events_count}}</label>
+                        <img *ngIf="!item.show" src="assets/img/down.png">
+                        <img *ngIf="item.show" src="assets/img/up.png">
+                    </span>
+                </a>
+                <ul data-content *ngIf="item.show">
+                    <li data-accordion>
+                        <ul data-content>
+                            <li *ngFor="let reg of item.regions; let r = index" (click)="getLeague(item, reg)">
+                                <a data-control>
+                                    <div class="new-flags">
+                                        <img src="/assets/img/flags/{{reg.type}}.svg">
+                                    </div>
+                                    <h6 class="country-name" >
+                                        {{reg.name}}
+                                    </h6>
+                                    <span class="m-menu-down">
+                                        <label class="down-badge"> {{reg.events_count}} </label>
+                                        <img *ngIf="!reg.show" src="assets/img/down.png">
+                                        <img *ngIf="reg.show" src="assets/img/up.png">
+                                    </span>
+                                </a>
+                                <div class="live-sidebar" *ngIf="reg.show" data-content>
+                                    <ul>
+                                        <ng-container *ngIf="events">
+                                            <li *ngIf="events.length ===0 ">
+                                                {{'n_record' | translate}}
+                                            </li>
+                                        </ng-container>
+                                        <ng-container *ngFor="let mat of events; let k = index;">
+                                            <li
+                                                *ngIf="!(mat.status.current_minute != null && mat.stats.current_minute == mat.stats.length)">
+                                                <a>
+                                                    <div class="item" (click)="detailMatch(mat)">
+                                                        <div class="text">
+                                                            <div class="match-name">{{mat.name}}</div>
+                                                            <div class="match-detail"><span>{{mat.info}}</span>
+                                                                <br>
+                                                                <span>{{getPeriodInfo(mat)}} </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="star">
+                                                            <button class="btn-favorite {{isAddedFavorite(mat)}}"
+                                                                (click)="addFavoriteMatch(mat)"><i
+                                                                    class="fa fa-star"></i></button>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ng-container>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</aside>

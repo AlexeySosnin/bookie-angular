@@ -1,0 +1,632 @@
+<header class="l-page__head d-head g-clearfix">
+    <div class="l-page_header">
+        <div class="header_sub">
+            <app-header></app-header>
+            <div class="g-left"></div>
+        </div>
+    </div>
+    <div class="top_winner_window" id="top_winner_window"></div>
+</header>
+<article class="l-page__l g-left" id="left_col">
+    <div class="top_leagues custom_top_leagues">
+        <div class="b-title__bg title_reg title_top_leagues">
+            <h1 class="bet_slip_txt" style="cursor: pointer" (click)="dashboard()">
+                <span class="">{{'match_calendar2' | translate}}</span>
+            </h1>
+        </div>
+
+        <app-favorite></app-favorite>
+        <app-match></app-match>
+
+    </div>
+
+    <div class="d-left"></div>
+</article>
+<app-coupon></app-coupon>
+<article class=" l-page__c_out">
+    <div class="loader new-loader" title="5" *ngIf="!isLoading">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px" y="0px" width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;"
+            xml:space="preserve">
+            <rect x="0" y="13" width="4" height="5" fill="#333">
+                <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0s" dur="0.6s"
+                    repeatCount="indefinite" />
+                <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0s" dur="0.6s"
+                    repeatCount="indefinite" />
+            </rect>
+            <rect x="10" y="13" width="4" height="5" fill="#333">
+                <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0.15s" dur="0.6s"
+                    repeatCount="indefinite" />
+                <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0.15s" dur="0.6s"
+                    repeatCount="indefinite" />
+            </rect>
+            <rect x="20" y="13" width="4" height="5" fill="#333">
+                <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0.3s" dur="0.6s"
+                    repeatCount="indefinite" />
+                <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0.3s" dur="0.6s"
+                    repeatCount="indefinite" />
+            </rect>
+        </svg>
+    </div>
+    <div id="main_content" *ngIf="isLoading">
+        <div id="content" class="l-page__c">
+            <section class="new-leaderboard" *ngIf="matchDetail.sport_id === 1">
+                <div class="board-title">
+                    <label class="new-side-icon">
+                        <img src="/assets/img/icons/{{matchDetail.sport.type}}.svg">
+                    </label>
+                    {{matchDetail.league.start_at_date}} {{matchDetail.league.start_at_hour}}
+                </div>
+                <div class="board-content">
+                    <div class="top" *ngIf="matchDetail.status === 0">
+                        {{matchDetail.stats.current_minute}}" 
+                        <span *ngIf="matchDetail.stats.additional_minutes != 0"> {{matchDetail.stats.additional_minutes}} </span>
+                    </div>
+                    <div class="top" *ngIf="matchDetail.status === 1">
+                        {{matchDetail.stats.current_minute}}"
+                        <span *ngIf="matchDetail.stats.additional_minutes != 0"> {{matchDetail.stats.additional_minutes}} </span>
+                    </div>
+                    <div class="top" *ngIf="matchDetail.status === 2">
+                        {{'events_completed' | translate}}
+
+                    </div>
+                    <div class="top" *ngIf="matchDetail.status === 3">
+                        {{'events_canceled' | translate}}
+                    </div>
+                    <div class="item">
+                        <div class="left">
+                            <div class="left-img">
+                                <img src="assets/img/left-form.png" />
+                            </div>
+                            <div class="text">
+                                {{matchDetail.home_team.name}}
+                            </div>
+                        </div>
+                        <div class="center">
+                            <h1>{{matchDetail.stats.score}}</h1>
+                            <h4></h4>
+                            <div class="badge"></div>
+                        </div>
+                        <div class="right">
+                            <div class="text">
+                                {{matchDetail.away_team.name}}
+                            </div>
+                            <div class="right-img">
+                                <img src="assets/img/right-form.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="board-bottom">
+                    <div class="left">
+
+                        <div class="item">
+                            <h5>{{'dangerous_attack' | translate}}</h5>
+                            <div class="progress">
+                                <label>{{getKeyWithParameter(matchDetail.stats,'dangerous_attack_score',0)}}</label>
+                                <div class="board-light-grey">
+                                    <div class="board-grey"
+                                        [style.width.%]="getPercent(matchDetail.stats,'dangerous_attack_score')"></div>
+                                </div>
+                                <label>{{getKeyWithParameter(matchDetail.stats,'dangerous_attack_score',1)}}</label>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="item">
+                            <h5>{{'corner_score' | translate}}</h5>
+                            <div class="progress">
+                                <label>{{getKeyWithParameter(matchDetail.stats,'corner_score',0)}}</label>
+                                <div class="board-light-grey">
+                                    <div class="board-grey"
+                                        [style.width.%]="getPercent(matchDetail.stats,'corner_score')"></div>
+                                </div>
+                                <label>{{getKeyWithParameter(matchDetail.stats,'corner_score',1)}}</label>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+
+                    </div>
+                    <div class="center">
+                        <div class="item">
+                            <h5>{{'shoot_on_target' | translate}}</h5>
+                            <div class="progress">
+                                <label>{{getKeyWithParameter(matchDetail.stats,'shoot_on_target_score',0)}}</label>
+                                <div class="board-light-grey">
+                                    <div class="board-grey"
+                                        [style.width.%]="getPercent(matchDetail.stats,'shoot_on_target_score')">
+                                    </div>
+                                </div>
+                                <label>{{getKeyWithParameter(matchDetail.stats,'shoot_on_target_score',1)}}</label>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="item">
+                            <h5>{{'yellow_card' | translate}}</h5>
+                            <div class="progress">
+                                <label>{{getKeyWithParameter(matchDetail.stats,'yellow_card_score',0)}}</label>
+                                <div class="board-light-grey">
+                                    <div class="board-grey"
+                                        [style.width.%]="getPercent(matchDetail.stats,'yellow_card_score')">
+                                    </div>
+                                </div>
+                                <label>{{getKeyWithParameter(matchDetail.stats,'yellow_card_score',1)}}</label>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="item">
+                            <h5>{{'shoot_off_target' | translate}}</h5>
+                            <div class="progress">
+                                <label>{{getKeyWithParameter(matchDetail.stats,'shoot_off_target_score',0)}}</label>
+                                <div class="board-light-grey">
+                                    <div class="board-grey"
+                                        [style.width.%]="getPercent(matchDetail.stats,'shoot_off_target_score')">
+                                    </div>
+                                </div>
+                                <label>{{getKeyWithParameter(matchDetail.stats,'shoot_off_target_score',1)}}</label>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="item">
+                            <h5>{{'red_card' | translate}}</h5>
+                            <div class="progress">
+                                <label>{{getKeyWithParameter(matchDetail.stats,'red_card_score',0)}}</label>
+                                <div class="board-light-grey">
+                                    <div class="board-grey"
+                                        [style.width.%]="getPercent(matchDetail.stats,'red_card_score')">
+                                    </div>
+                                </div>
+                                <label>{{getKeyWithParameter(matchDetail.stats,'red_card_score',1)}}</label>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </section>
+            <section class="new-leaderboard type-1 live-basketball" *ngIf="matchDetail.sport_id == 3">
+                <div class="board-title">
+                    <div class="left"><img src="/assets/img/img-canli/board-icon-basketball.png" />
+                        {{matchDetail.league.name}}</div>
+                    <div class="right">
+
+                        <ul>
+                            <li><label class="board-time">{{matchDetail.stats.remaining_time}}</label></li>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li><span class="color-type-one">ÇEYREK</span></li>
+                        </ul>
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="board-content">
+                    <div class="item">
+                        <div class="left"> {{matchDetail.home_team.name}}
+                        </div>
+                        <div class="right">
+
+                            <ul>
+                                <li>{{getKeyWithParameter(matchDetail.stats.set_scores[0],'',0)}}
+                                </li>
+                                <li>{{getKeyWithParameter(matchDetail.stats.set_scores[1],'',0)}}
+                                </li>
+                                <li>{{getKeyWithParameter(matchDetail.stats.set_scores[2],'',0)}}
+                                </li>
+                                <li>{{getKeyWithParameter(matchDetail.stats.set_scores[3],'',0)}}
+                                </li>
+                                <li>{{getKeyWithParameter(matchDetail.stats.score,'',0)}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="left">{{matchDetail.away_team.name}}</div>
+                        <div class="right">
+                            <ul>
+                                <li>{{getKeyWithParameter(matchDetail.stats.set_scores[0],'',1)}}
+                                </li>
+                                <li>{{getKeyWithParameter(matchDetail.stats.set_scores[1],'',1)}}
+                                </li>
+                                <li>{{getKeyWithParameter(matchDetail.stats.set_scores[2],'',1)}}
+                                </li>
+                                <li>{{getKeyWithParameter(matchDetail.stats.set_scores[3],'',1)}}
+                                </li>
+                                <li>{{getKeyWithParameter(matchDetail.stats.score,'',1)}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </section>
+            <section class="new-leaderboard type-1 live-tenis" *ngIf="matchDetail.sport_id == 4">
+                <div class="board-title">
+                    <div class="left"><img src="/assets/img/img-canli/board-icon-tenis.png" />
+                        {{matchDetail.league.name}}
+                    </div>
+                    <div class="right">
+
+                        <ul>
+                            <li *ngFor='let in of counter(matchDetail.stats.set_count-1) ;let i = index'>{{i+1}}</li>
+                            <li>Set</li>
+                            <li>Puanlar</li>
+                        </ul>
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="board-content">
+                    <div class="item">
+                        <div class="left">{{matchDetail.home_team.name}}</div>
+                        <div class="right">
+
+                            <ul>
+                                <li *ngFor='let in of counter(matchDetail.stats.set_count-1) ;let i = index'>
+                                    {{getKeyWithParameter(matchDetail.stats.set_scores[i+1],'',0)}}
+                                </li>
+                                <li><span
+                                        class="color-type-one">{{getKeyWithParameter(matchDetail.stats,'score',0)}}</span>
+                                </li>
+                                <li>{{getKeyWithParameter(matchDetail.stats,'game_score',0)}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="left">{{matchDetail.away_team.name}}</div>
+                        <div class="right">
+                            <ul>
+                                <li *ngFor='let in of counter(matchDetail.stats.set_count-1) ;let i = index'>
+                                    {{getKeyWithParameter(matchDetail.stats.set_scores[i+1],'',1)}}
+                                </li>
+                                <li><span
+                                        class="color-type-one">{{getKeyWithParameter(matchDetail.stats,'score',1)}}</span>
+                                </li>
+                                <li>{{getKeyWithParameter(matchDetail.stats,'game_score',1)}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </section>
+            <section class="new-leaderboard type-1 live-cyber-futbol" *ngIf="matchDetail.sport_id == 47">
+                <div class="board-title">
+                    <div class="left"><img src="/assets/img/img-canli/board-icon-default.png" />
+                        {{matchDetail.league.name}}
+                    </div>
+                    <div class="right">
+
+                        <ul>
+                            <li *ngFor='let in of counter(matchDetail.stats.set_count-1) ;let i = index'>{{i+1}}</li>
+                            <li><span class="color-type-one">Sıra</span></li>
+                        </ul>
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="board-content">
+                    <div class="item">
+                        <div class="left">{{matchDetail.home_team.name}}</div>
+                        <div class="right">
+
+                            <ul>
+                                <li *ngFor='let in of counter(matchDetail.stats.set_count-1) ;let i = index'>
+                                    {{getKeyWithParameter(matchDetail.stats.set_scores[i+1],'',0)}}
+                                </li>
+                                <li><span
+                                        class="color-type-one">{{getKeyWithParameter(matchDetail.stats,'score',0)}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="left">{{matchDetail.away_team.name}}</div>
+                        <div class="right">
+
+                            <ul>
+                                <li *ngFor='let in of counter(matchDetail.stats.set_count-1) ;let i = index'>
+                                    {{getKeyWithParameter(matchDetail.stats.set_scores[i+1],'',1)}}
+                                </li>
+                                <li><span
+                                        class="color-type-one">{{getKeyWithParameter(matchDetail.stats,'score',1)}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+            </section>
+            <section class="new-leaderboard type-1 live-cyber-basketbol" *ngIf="matchDetail.sport_id == 49">
+                <div class="board-title">
+                    <div class="left"><img src="/assets/img/img-canli/board-icon-default.png" />
+                        {{matchDetail.league.name}}
+                    </div>
+                    <div class="right">
+
+                        <!--<ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                            <li><span class="color-type-one">Sıra</span></li>
+                        </ul>-->
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="board-content">
+                    <div class="item">
+                        <div class="left">{{matchDetail.home_team.name}}</div>
+                        <div class="right">
+
+                            <!--<ul>
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                                <li>5</li>
+                                <li>2</li>
+                            </ul>-->
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="left">{{matchDetail.away_team.name}}</div>
+                        <div class="right">
+
+                            <!--<ul>
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                                <li>5</li>
+                                <li>2</li>
+                            </ul>-->
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+            </section>
+
+            <section class="new-leaderboard type-1 live-default"
+                *ngIf="matchDetail.sport_id != 1 && matchDetail.sport_id != 3 
+                        && matchDetail.sport_id != 4 && matchDetail.sport_id != 47 
+                        && matchDetail.sport_id != 49 && matchDetail.stats.set_count">
+                <div class="board-title">
+                    <div class="left"><img src="/assets/img/img-canli/board-icon-default.png" />
+                        {{matchDetail.league.name}}
+                    </div>
+                    <div class="right">
+                        <ul>
+                            <li *ngFor='let in of counter(matchDetail.stats.set_count-1) ;let i = index'>{{i+1}}</li>
+                            <li><span class="color-type-one">Sıra</span></li>
+                        </ul>
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="board-content">
+                    <div class="item">
+                        <div class="left">{{matchDetail.home_team.name}}</div>
+                        <div class="right">
+
+                            <ul>
+                                <li *ngFor='let in of counter(matchDetail.stats.set_count-1) ;let i = index'>
+                                    {{getKeyWithParameter(matchDetail.stats.set_scores[i+1],'',0)}}
+                                </li>
+                                <li><span
+                                        class="color-type-one">{{getKeyWithParameter(matchDetail.stats,'score',0)}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="left">{{matchDetail.away_team.name}}</div>
+                        <div class="right">
+
+                            <ul>
+                                <li *ngFor='let in of counter(matchDetail.stats.set_count-1) ;let i = index'>
+                                    {{getKeyWithParameter(matchDetail.stats.set_scores[i+1],'',1)}}
+                                </li>
+                                <li><span
+                                        class="color-type-one">{{getKeyWithParameter(matchDetail.stats,'score',1)}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+            </section>
+            <section class="new-leaderboard type-2 live-default"
+                *ngIf="matchDetail.sport_id != 1 && matchDetail.sport_id != 3 && 
+                    matchDetail.sport_id != 4 && matchDetail.sport_id != 47 && matchDetail.sport_id != 49 
+                    && !matchDetail.stats.set_count">
+                <div class="board-title">
+                    <div class="left"><img src="/assets/img/img-canli/board-icon-default.png" />
+                        {{matchDetail.league.name}}</div>
+                    <div class="right">
+
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="board-content">
+                    <div class="md-left">
+                        <div class="item">
+                            <div class="left">{{matchDetail.home_team.name}}</div>
+                        </div>
+                        <div class="item">
+                            <div class="left">{{matchDetail.away_team.name}}</div>
+                        </div>
+                    </div>
+                    <div class="md-right">
+                        <div class="top" >
+                           <div *ngIf="matchDetail.stats.current_minute"> {{matchDetail.stats.current_minute}}"</div>
+                        </div>
+                        <div class="center">
+                            <h1>{{matchDetail.stats.score}}</h1>
+                            <div class="badge"></div>
+                        </div>
+                    </div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </section>
+        </div>
+    </div>
+</article>
+<article class=" l-page__c_out" id="main_content_article">
+    <div id="main_content" *ngIf="isLoading">
+        <div id="content" class="l-page__c">
+
+            <input type="hidden" class="is_today" name="is_today" value="">
+            <div class="events_contein">
+                <h1 class="title_eve title_black">
+                    <div class="s_title_ev">
+                        <table width="100%">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="t_name_l m-menu__link_s">
+                                            <a style="cursor: pointer;" (click)="getSportEvent(matchDetail.sport)">
+                                                {{matchDetail.sport.name}}</a>
+                                            <span class="tit_arr_ev"></span>
+                                            <a style="cursor: pointer;" (click)="getRegionEvent(matchDetail.region)">
+                                                {{matchDetail.region.name}}</a>
+                                            <span class="tit_arr_ev"></span>
+                                            <a style="cursor: pointer;" (click)="getLeagueEvent(matchDetail.league)">
+                                                {{matchDetail.league.name}}</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a id="return_link" (click)="onBack()" class="crate_cupon g-round g-right">
+                                            <i></i>
+                                            <span>{{'back' |translate}}</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </h1>
+                <div class="one_ev_st">
+                    <div class="one_ev_st_l g-ellipsis">{{matchDetail.name}}</div>
+                    <div class="one_ev_st_r">
+                        <div>
+                            {{matchDetail.start_at_date}} {{matchDetail.start_at_hour}}
+                        </div>
+                    </div>
+                </div>
+                <table class="table_groups_markets" *ngIf="matchDetail.status !== 2 && matchDetail.sport_id === 1" >
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="{{getClass('all')}}" (click)="changeActiveTab('')" data-group_name="all"
+                                    data-markets="" data-scopes="">
+                                    {{'all_markets' | translate}}</div>
+                            </td>
+                            <td>
+                                <div class="{{getClass('main')}}" (click)="changeActiveTab('match')"
+                                    data-group_name="main" data-markets="1x2" data-scopes="">
+                                    {{'main_markets' | translate}}</div>
+                            </td>
+                            <td>
+                                <div class="{{getClass('handicap')}}" (click)="changeActiveTab('handicap')"
+                                    data-group_name="handicap" data-markets="ah,ou" data-scopes="">
+                                    {{'handicap_markets' | translate}}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="{{getClass('markets')}}" (click)="changeActiveTab('total')"
+                                    data-group_name="*" data-markets="gng" data-scopes="">
+                                    {{'goal_markets' | translate}}</div>
+                            </td>
+                            <td>
+                                <div class="{{getClass('half')}}" (click)="changeActiveTab('half')"
+                                    data-group_name="only_market" data-markets="1x2" data-scopes="1h,2h">
+                                    {{'half_markets' | translate}}
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <ng-container *ngFor="let live of lives; let r = index">
+                    <div class="b-title title_contein_box drop_title 1x2 fe">
+                        <h1 class="bet_slip_txt">
+                            {{live.name}}
+                        </h1>
+                    </div>
+                    <div class="date_head 1x2 fe ">
+                        <div
+                            class="b-bet-grid__out  b-bet-grid__one_ev  page-rate-list   b-bet-grid__out_last g-round_b  sport_-id">
+
+                            <ng-container *ngIf="live.odds.length < 4">
+                                <div class="content">
+                                    <div class="item-col" *ngFor="let event of live.odds; let k = index">
+                                        <div class="rate-item" (click)="selectedEvent(live,event)">
+                                            <div class="left"> {{event.orjName}} {{event.name}}</div>
+                                            <div class="right sk-p">
+                                                <div class="cell_bord_l">
+
+
+                                                    <div class="g-right up_odd_arrow" *ngIf="event.newValueState==1">◥
+                                                    </div>
+                                                    <div class="g-right down_odd_arrow" *ngIf="event.newValueState==-1">
+                                                        ◢
+                                                    </div>
+                                                </div>
+                                                <span [ngClass]="getEventIsSelected(event)" *ngIf="!showLock(live, event)">{{event.price | number: '1.2-2'}}</span>
+                                                <img *ngIf="showLock(live, event)" src="assets/img/lock.png" />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <ng-container *ngIf="live.odds.length > 3">
+                                <div class="content special">
+                                    <div class="item-col" *ngFor="let event of live.odds; let k = index">
+                                        <div class="rate-item" (click)="selectedEvent(live,event)">
+                                            <div class="left"> {{event.orjName}} {{event.name}}</div>
+                                            <div class="right sk-p">
+                                                <div class="cell_bord_l">
+
+
+                                                    <div class="g-right up_odd_arrow" *ngIf="event.newValueState==1">◥
+                                                    </div>
+                                                    <div class="g-right down_odd_arrow" *ngIf="event.newValueState==-1">
+                                                        ◢
+                                                    </div>
+                                                </div>
+                                                <span [ngClass]="getEventIsSelected(event)" *ngIf="!showLock(live, event)"
+                                                    >{{event.price | number: '1.2-2'}}</span>
+                                                <img *ngIf="showLock(live, event)" src="assets/img/lock.png" />
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+
+
+                        </div>
+                    </div>
+
+                </ng-container>
+
+            </div>
+        </div>
+    </div>
+</article>

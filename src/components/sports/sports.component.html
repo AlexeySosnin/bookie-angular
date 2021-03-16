@@ -1,0 +1,25 @@
+<article class="l-page__l g-left" id="left_col">
+    <div class="top_leagues custom_top_leagues">
+        <form class="search_form" name="search_form">
+            <div class="b-search" >
+                <input type="text" class="b-search__input g-left autoclear"
+                    (input)="onSearchChange($event.target.value)" name="searchbox" id="searchbox"
+                    [ngModel]="searchkey"
+                    placeholder="Arama.dd..">
+                <button type="button" class="button_search">
+                </button>
+            </div>
+        </form>
+        <div class="b-title__bg title_reg title_top_leagues">
+            <h1 class="bet_slip_txt" style="cursor: pointer">
+                <span class="">{{'live_match_results' | translate}}</span>
+            </h1>
+        </div>
+        <app-favorite-league></app-favorite-league>
+        <app-favorite></app-favorite>
+        <app-match></app-match>
+        <app-bets></app-bets>
+        </div>
+
+    <div class="d-left"></div>
+</article>

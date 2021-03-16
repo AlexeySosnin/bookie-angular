@@ -1,0 +1,105 @@
+<article class="l-page__r g-right">
+    <div class="coupons-button" style="cursor: pointer;">
+        <a (click)="historyPage()">
+            {{'coupon_history' | translate}}
+        </a>
+    </div>
+    <ng-container>
+        <app-live-match></app-live-match>
+
+    </ng-container>
+
+    <div id="betcard_container">
+        <div id="betcard" class="b-betcart__out cashout_enabled">
+            <div id="betcard-body"
+                class="b-betcart betcart-body ui-tabs ui-widget ui-widget-content ui-corner-all betcart-bankers-enabled"
+                init="true" style="display: block;">
+
+                <input type="hidden" class="is_stake_per_bet" value="1">
+                <div class="b-title b-title__bg title_reg  my-bets_tabs selected">
+                    <div class="b-title_txt_box">
+                        <span class="bet_slip_txt">
+                            <span (click)="activeTabFnc('coupon')"
+                                class="{{activeTabFncClass('coupon')}}">{{'coupon' | translate}}</span>
+                            <span (click)="activeTabFnc('cashOut')"
+                                class="{{activeTabFncClass('cashOut')}}">{{'break_the_bet' | translate}}</span>
+
+                        </span>
+                    </div>
+                </div>
+
+                <div *ngIf="showActiveTab('coupon')">
+                    <ul id="tab-nav"
+                        class="betcart-head g-clearfix ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+                        <li id="tab-nav-item-single" class="{{getClass('single')}}">
+                            <a (click)="changeTab('single')" rel="single">
+                                <span class="left_shadow"></span>
+                                <span>{{'single'| translate}}</span>
+                                <span class="right_shadow"></span>
+                            </a>
+                        </li>
+
+                        <li id="tab-nav-item-combined" class="{{getClass('combined')}}">
+                            <a (click)="changeTab('combined')" rel="combined">
+                                <span class="left_shadow"></span>
+                                <span>{{'combined' | translate}}</span>
+                                <span class="right_shadow"></span>
+                            </a>
+                        </li>
+                        <li id="tab-nav-item-system" class="{{getClass('system')}}">
+                            <a (click)="changeTab('system')" rel="system">
+                                <span class="left_shadow"></span>
+                                <span>{{'system' | translate}}</span>
+                                <span class="right_shadow"></span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div id="single-pane" *ngIf="activeTab == 'single'"
+                        class="betcart-pane ui-tabs-panel ui-widget-content ui-corner-bottom">
+                        <app-single isActive="activeTab == 'single'"></app-single>
+                    </div>
+                    <div id="combined-pane" *ngIf="activeTab == 'combined'"
+                        class="betcart-pane ui-tabs-panel ui-widget-content ui-corner-bottom">
+                        <app-combined isActive="activeTab == 'combined'"></app-combined>
+                    </div>
+                    <div id="system-pane" *ngIf="activeTab == 'system'"
+                        class="betcart-pane ui-tabs-panel ui-widget-content ui-corner-bottom">
+                        <app-system isActive="activeTab == 'system'"></app-system>
+                    </div>
+                </div>
+                <div *ngIf="showActiveTab('cashOut')">
+                    <app-cashout></app-cashout>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="top_leagues custom_top_leagues" *ngIf="highligth()">
+        <div class="b-title__bg title_reg title_top_leagues">
+            <span class="bet_slip_txt" style="cursor: pointer">
+                <span class="">{{'most_winning' | translate}}</span>
+            </span>
+        </div>
+        <div class="top-winners-right">
+            <div class="title">
+                <div class="col-1">{{'gain' | translate}}</div>
+                <div class="col-1">{{'quantity' | translate}}</div>
+                <div class="col-1">{{'betslip' | translate}}</div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="item" *ngFor="let item of winners;let k = index; ">
+                <div class="col-1">{{item.gain ? item.gain : '&nbsp;'}}</div>
+                <div class="col-1">{{item.stake}}</div>
+                <div class="col-1"><a style="cursor: pointer;    text-decoration: underline;"
+                        (click)="openDialog(item)">{{item.id}}</a></div>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+</article>

@@ -1,0 +1,291 @@
+<div class="l-page__body_u">
+    <article class=" l-page__c_out" style="max-width: 100% !important;" id="main_content_article">
+        <div id="main_content">
+            <div id="content" class="l-page__c">
+                <article class="c-content_left">
+                    <div id="home">
+                        <div class="b-title__bg title_reg b-title_hl">
+                            <h1 class="bet_slip_txt">
+                                <div class="g-left">
+                                    {{'active_bet' | translate}}
+                                </div>
+                            </h1>
+                        </div>
+                        <div class="bet-history-content">
+                            <div class="b-filters ">
+                                <form class="b-form b-filters__form g-left">
+                                    <fieldset>
+                                        <div class="b-filters__control g-stack2">
+                                            <select [formControl]="status" (change)="search()" name="bet_stat"
+                                                id="bet_stat" class="b-filters__select b-select">
+                                                <option selected>-- {{'all' | translate}} --</option>
+                                                <option value="created"> {{'active' | translate}}</option>
+                                                <option value="eventuated"> {{'resulting' | translate}}</option>
+                                                <option value="canceled"> {{'canceled' | translate}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="b-filters__control g-stack2">
+                                            <select id="year_select" [formControl]="year" (change)="search()"
+                                                class="b-filters__select b-select">
+                                                <option value=""> {{'select' | translate}}</option>
+                                                <option selected value="2021">2021</option>
+                                                <option>2020</option>
+                                                <option value="2019">2019</option>
+                                                <option value="2018">2018</option>
+                                                <option value="2017">2017</option>
+                                            </select>
+                                        </div>
+                                        <div class="b-filters__control g-stack2">
+                                            <select id="month_select" [formControl]="month" (change)="search()"
+                                                class="b-filters__select b-select">
+
+
+                                                <option value="">{{'select' | translate}}</option>
+                                                <option value="1"> {{'jan' | translate}}</option>
+                                                <option value="2">{{'feb' | translate}}</option>
+                                                <option value="3">{{'mar' | translate}}</option>
+                                                <option value="4">{{'apr' | translate}}</option>
+                                                <option value="5">{{'may' | translate}}</option>
+                                                <option value="6">{{'june' | translate}}</option>
+                                                <option value="7">{{'july' | translate}}</option>
+                                                <option value="8">{{'aug' | translate}}</option>
+                                                <option value="9">{{'sep' | translate}}</option>
+                                                <option value="10">{{'oct' | translate}}</option>
+                                                <option value="11">{{'nov' | translate}}</option>
+                                                <option value="12">{{'dec' | translate}}</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="b-filters__button g-stack3 search_betting_history">
+                                            <a (click)="search()" class="b-button b-button g-stack"><b
+                                                    class="b-button__text g-stack"> {{'start' | translate}}</b></a>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                                <form class="b-form b-filters__form" name="search_events" id="search_events"
+                                    action="/my_account/" method="get">
+                                    <span class="b-button_block_ie">
+                                        <div class="b-filters__input-s">
+
+                                        </div>
+                                        <div class="b-filters__button g-stack b-button_search_ie">
+
+                                        </div>
+                                    </span>
+                                </form>
+                            </div>
+
+                            <div id="subcontent" class="g-clearfix">
+                                <div class="match-result-table" *ngIf="!isLoading">{{'loading' | translate}}</div>
+                                <div class="match-result-table" *ngIf="isLoading">
+                                    <div class="table-title">
+                                        <div class="score"><span>{{'coupon_time' | translate}}</span></div>
+                                        <div class="score"><span>{{'id' | translate}}</span></div>
+                                        <div class="score"><span>{{'type' | translate}}</span></div>
+                                        <div class="score"><span>{{'rates' | translate}}</span></div>
+                                        <div class="score"><span>{{'quantity' | translate}}</span></div>
+                                        <div class="score"><span>{{'defeat' | translate}}</span></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="table-item" *ngIf="!isLogined">
+                                        <div class="panel-result">
+                                            <div class="result-image">
+                                                <img src="assets/img/danger-icon.png" class="img-fluid" alt="">
+                                            </div>
+                                            <div class="result-title danger">
+                                                {{'please_login' | translate}}
+                                            </div>
+                                            <div class="result-desc">
+                                                {{"contactusforproblem" | translate}}
+                                            </div>
+                                            <div class="result-buttons">
+                                                <button class="btn-sub">{{"homepage" | translate}}</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="table-item" *ngIf="isLogined && !history && history.length === 0">
+                                        <div class="panel-result">
+                                            <div class="result-image">
+                                                <img src="assets/img/found.png" class="img-fluid" alt="">
+                                            </div>
+                                            <div class="result-title warning">
+                                                {{n_record | translate}}
+                                            </div>
+                                            <div class="result-desc">
+                                                {{'recordnotfoundpleasetryagain' | translate}}
+                                            </div>
+                                            <div class="result-buttons">
+                                                <button class="btn-sub">{{"homepage" | translate}}</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="table-item" *ngFor="let item  of history;let k=index;">
+                                        <div class="score" (click)="detailPage(item)">
+                                            <span>{{item.created_at_for_humans}}</span></div>
+                                        <div class="score" (click)="detailPage(item)"><span> {{item.id}} </span></div>
+                                        <div class="score" (click)="detailPage(item)"><span>{{item.state_name}}</span>
+                                        </div>
+                                        <div class="score" (click)="detailPage(item)"><span>{{item.stake}}</span></div>
+                                        <div class="score" (click)="detailPage(item)">
+                                            <span>{{GetPercent(item) | number:'1.0-2'}}</span>
+                                        </div>
+                                        <div class="score" (click)="detailPage(item)"><span>{{item.status_name}}</span>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+                                        <div class="table-item-detail" *ngIf="item.showDetail">
+                                            <div class="content" id="printarea">
+
+
+                                                <table class="b-user-grid m-user-grid_gradient_col g-round"
+                                                    cellpadding="0" cellspacing="0">
+                                                    <colgroup>
+                                                        <col class="col_10">
+                                                        <col width="2">
+                                                        <col>
+                                                        <col>
+                                                        <col>
+                                                        <col>
+                                                        <col width="100">
+                                                        <col width="100">
+                                                        <col width="50">
+                                                    </colgroup>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="b-user-grid__cell">
+                                                                <div class="b-user-grid__cell_inn">{{'bet' | translate}}
+                                                                </div>
+                                                            </td>
+                                                            <td class="b-user-grid__gap">&nbsp;</td>
+                                                            <td class="b-user-grid__cell" colspan="7">
+                                                                <div class="b-user-grid__cell_inn">
+                                                                    <span>{{couponDetail.state_name}}</span><span
+                                                                        style="float: right;">
+                                                                        <iframe type="application/pdf" src=""
+                                                                            name="pdfDocument" id="pdfDocument"
+                                                                            width="0" height="0" style="border: none;"
+                                                                            class="g-hiddeh"></iframe>
+                                                                        <a (click)="print()" class="b-link i_print"
+                                                                            title="Print"></a></span></div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="b-user-grid__cell_event_it"
+                                                            *ngFor="let dt of couponDetail.odds">
+                                                            <td class="b-user-grid__cell b-user-grid__cell_ev">
+                                                                <div class="b-user-grid__cell_inn"></div>
+                                                            </td>
+                                                            <td class="b-user-grid__gap">&nbsp;</td>
+                                                            <td class="b-user-grid__cell b-user-grid__cell_rep" nowrap
+                                                                colspan="4">
+                                                                <table
+                                                                    class="b-user-grid m-user-grid_gradient_col g-round">
+                                                                    <tr class="b-user-grid__cell_event_it">
+                                                                        <td class="b-user-grid__cell">
+                                                                            [{{dt.event.home_team.name}} -
+                                                                            {{dt.event.away_team.name}}]</td>
+                                                                        <td class="b-user-grid__cell">
+                                                                            {{dt.event.start_at_date}},
+                                                                            {{dt.event.start_at_hour}}
+                                                                        </td>
+                                                                        <td class="b-user-grid__cell">{{dt.name}}
+                                                                        </td>
+                                                                        <td class="b-user-grid__cell">{{dt.price}}
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <td class="b-user-grid__cell">
+                                                                {{dt.event.score}}
+                                                            </td>
+                                                            <td class="b-user-grid__cell">
+                                                                <span class="b-result">{{dt.outcome_name}}</span>
+                                                            </td>
+                                                            <td class="b-user-grid__cell">
+                                                                <div class="b-user-grid__cell_inn">—</div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="b-user-grid__cell">
+                                                                <div class="b-user-grid__cell_inn">
+                                                                    {{'put_bet' | translate}}</div>
+                                                            </td>
+                                                            <td class="b-user-grid__gap">&nbsp;</td>
+                                                            <td class="b-user-grid__cell" colspan="7">
+                                                                <div class="b-user-grid__cell_inn">
+                                                                    {{couponDetail.amount}}
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="b-user-grid__cell">
+                                                                <div class="b-user-grid__cell_inn">
+                                                                    {{'full_bet' | translate}}</div>
+                                                            </td>
+                                                            <td class="b-user-grid__gap">&nbsp;</td>
+                                                            <td class="b-user-grid__cell" colspan="7">
+                                                                <div class="b-user-grid__cell_inn">
+                                                                    {{couponDetail.stake}}</div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="b-user-grid__cell">
+                                                                <div class="b-user-grid__cell_inn">
+                                                                    {{'rates' | translate}}</div>
+                                                            </td>
+                                                            <td class="b-user-grid__gap">&nbsp;</td>
+                                                            <td class="b-user-grid__cell" colspan="7">
+                                                                <div class="b-user-grid__cell_inn">
+                                                                    {{GetPercent(item) | number:'1.0-2'}}
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="b-user-grid__cell">
+                                                                <div class="b-user-grid__cell_inn">
+                                                                    {{'coupon_time' | translate}}</div>
+                                                            </td>
+                                                            <td class="b-user-grid__gap">&nbsp;</td>
+                                                            <td class="b-user-grid__cell" colspan="7">
+                                                                <div class="b-user-grid__cell_inn">
+                                                                    {{couponDetail.created_at_for_humans}}</div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="b-user-grid__cell">
+                                                                <div class="b-user-grid__cell_inn">
+                                                                    {{'max_gain' | translate}}</div>
+                                                            </td>
+                                                            <td class="b-user-grid__gap">&nbsp;</td>
+                                                            <td class="b-user-grid__cell" colspan="7">
+                                                                <div class="b-user-grid__cell_inn">
+                                                                    {{couponDetail.possible_win}}</div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="clearfix"></div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div id="subcontent" class="g-clearfix">
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+
+            </div>
+        </div>
+    </article>
+</div>

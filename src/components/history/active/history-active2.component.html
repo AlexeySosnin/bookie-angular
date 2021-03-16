@@ -1,0 +1,289 @@
+<div class="l-page__body_u">
+    <article class=" l-page__c_out" style="    max-width: 100% !important;" id="main_content_article">
+        <div id="main_content">
+            <div id="content" class="l-page__c">
+                <article class="c-content_left">
+                    <div id="home">
+                        <div class="b-title__bg title_reg b-title_hl">
+                            <h1 class="bet_slip_txt">
+                                <div class="g-left">
+                                    AKTİF BAHİSLER
+                                </div>
+                            </h1>
+                        </div>
+                        <div class="bet-history-content">
+                            <div class="b-filters ">
+                                <form class="b-form b-filters__form g-left">
+                                    <fieldset>
+                                        <div class="b-filters__control g-stack2">
+                                            <select [formControl]="status" (change)="search()" name="bet_stat"
+                                                id="bet_stat" class="b-filters__select b-select">
+                                                <option selected>{{'all' | translate}}</option>
+                                                <option value="created"> {{'active' | translate}}</option>
+                                                <option value="eventuated"> {{'resulting' | translate}}</option>
+                                                <option value="canceled"> {{'canceled' | translate}}</option>
+                                                <option value="cashout">{{'cashout' | translate}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="b-filters__control g-stack2">
+                                            <select id="month_select" [formControl]="month" (change)="search()"
+                                                class="b-filters__select b-select">
+                                                <option value="1">Ocak</option>
+                                                <option value="2">Şubat</option>
+                                                <option value="3">Mart</option>
+                                                <option value="4">Nisan</option>
+                                                <option value="5">Mayıs</option>
+                                                <option value="6">Haziran</option>
+                                                <option value="7" selected="selected">Temmuz</option>
+                                                <option value="8">Ağustos</option>
+                                                <option value="9">Eylül</option>
+                                                <option value="10">Ekim</option>
+                                                <option value="11">Kasım</option>
+                                                <option value="12">Aralık</option>
+                                            </select>
+                                        </div>
+                                        <div class="b-filters__control g-stack2">
+                                            <select id="year_select" [formControl]="year" (change)="search()"
+                                                class="b-filters__select b-select">
+                                                <option selected value="2020">2020</option>
+                                                <option value="2019">2019</option>
+                                                <option value="2018">2018</option>
+                                                <option value="2017">2017</option>
+                                            </select>
+                                        </div>
+                                        <div class="b-filters__button g-stack3 search_betting_history">
+                                            <a (click)="search()" class="b-button b-button g-stack"><b
+                                                    class="b-button__text g-stack">Başlat</b></a>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                                <form class="b-form b-filters__form" name="search_events" id="search_events"
+                                    action="/my_account/" method="get">
+                                    <span class="b-button_block_ie">
+                                        <div class="b-filters__input-s">
+
+                                        </div>
+                                        <div class="b-filters__button g-stack b-button_search_ie">
+
+                                        </div>
+                                    </span>
+                                </form>
+                            </div>
+                            <div id="subcontent" class="g-clearfix">
+                                <div class="b-user-grid__out bet_hist">
+                                    <div class="b-user-grid__wrap">
+                                        <div class="g-shadow__inn">
+                                            <table class="b-user-grid" cellpadding="0" cellspacing="0">
+                                                <colgroup>
+                                                    <col class="col_12p">
+                                                    <col class="col_10p">
+                                                    <col>
+                                                    <col>
+                                                    <col class="col_11p">
+                                                    <col class="col_11p">
+                                                    <col class="col_15p">
+                                                </colgroup>
+                                                <thead>
+                                                    <tr class="b-user-grid__head">
+                                                        <th class="b-user-grid__cell b-user-grid__cell_f">{{'copun_time'
+                                                            | translate}}
+                                                        </th>
+                                                        <th class="b-user-grid__cell">ID</th>
+                                                        <th class="b-user-grid__cell">{{"event" | translate }}</th>
+                                                        <th class="b-user-grid__cell">{{'selectoption' | translate }}
+                                                        </th>
+                                                        <th class="b-user-grid__cell" align="right">{{'max_gain' |
+                                                            translate}}</th>
+                                                        <th class="b-user-grid__cell" align="right">{{'rates' |
+                                                            translate }}</th>
+                                                        <th class="b-user-grid__cell b-user-grid__cell_l" align="right">
+                                                            {{'defeat' | translate }}</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                        <div class="g-shadow__ie"></div>
+                                        <!--[endif]---->
+                                    </div>
+                                    <div class="b-user-grid__wrap">
+                                        <div class="g-shadow__inn">
+                                            <!--[endif]---->
+                                            <table class="b-user-grid" cellpadding="0" cellspacing="0">
+                                                <colgroup>
+                                                    <col class="col_12p">
+                                                    <col class="col_10p">
+                                                    <col>
+                                                    <col>
+                                                    <col class="col_11p">
+                                                    <col class="col_11p">
+                                                    <col class="col_15p">
+                                                </colgroup>
+                                                <tbody>
+
+                                                    <ng-container *ngFor="let item  of history;let k=index;">
+                                                        <tr style="cursor: pointer;" (click)="detailPage(item)">
+                                                            <td class="b-user-grid__cell b-user-grid__cell_f"
+                                                                align="center">
+                                                                <div class="b-user-grid__cell_inn">{{item.created_at_for_humans}}</div>
+                                                            </td>
+                                                            <td class="b-user-grid__cell" align="center">
+                                                                <div class="b-user-grid__cell_inn">
+                                                                    <a class="b-link" style="cursor: pointer;"
+                                                                        (click)="detailPage(item)">{{item.id}}</a>
+                                                                </div>
+                                                            </td>
+                                                            <td class="b-user-grid__cell">
+                                                                <div class="b-user-grid__cell_inn">{{item.state_name}}
+                                                                </div>
+                                                            </td>
+                                                            <td class="b-user-grid__cell">
+                                                                <div class="b-user-grid__cell_inn">—</div>
+                                                            </td>
+                                                            <td class="b-user-grid__cell" align="right">
+                                                                <div class="b-user-grid__cell_inn">TL
+                                                                    {{item.possible_win}}
+                                                                </div>
+                                                            </td>
+                                                            <td class="b-user-grid__cell" align="right">
+                                                                <div class="b-user-grid__cell_inn g-ellipsis">
+                                                                    {{GetPercent(item) | number:'1.0-2'}}
+                                                                </div>
+                                                            </td>
+                                                            <td class="b-user-grid__cell b-user-grid__cell_l"
+                                                                align="right">
+                                                                <div class="b-user-grid__cell_inn">
+                                                                    {{item.status_name}}
+
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr *ngIf="history">
+                                                            <td colspan="7" align="center" style="text-align: unset;">
+                                                                <ng-container *ngIf="history.length===0"> {{'n_record' |
+                                                                    translate}} </ng-container>
+                                                                <div class="b-form__fieldset bet_det p_10"
+                                                                    *ngIf="item.showDetail">
+
+                                                                    <section class="betting-past">
+                                                                        <div class="title">
+                                                                            {{'betdetail' |
+                                                                        translate}}
+                                                                        </div>
+                                                                        <div class="betting-content">
+                                                                            <div class="item">
+                                                                                <div class="item-left">
+                                                                                    {{'bet' |
+                                                                                                        translate}}
+                                                                                </div>
+                                                                                <div class="item-right">
+                                                                                    {{couponDetail.state_name}}
+                                                                                </div>
+                                                                                <div class="clearfix"></div>
+                                                                            </div>
+                                                                            <div class="item">
+                                                                                <div class="item-left">
+                                                                                    Seçtikleri:
+                                                                                </div>
+                                                                                <div class="item-right" *ngFor="let dt of couponDetail.odds">
+                                                                                    <div class="col1">
+                                                                                        [{{dt.event.home_team.name}}
+                                                                                        -
+                                                                                                        {{dt.event.away_team.name}}]
+                                                                                                        {{dt.start_at_date}},
+                                                                                                        {{dt.start_at_hour}}
+                                                                                    </div>
+                                                                                    <div class="col2">
+                                                                                        {{dt.name}}
+                                                                                    </div>
+                                                                                    <div class="col3">
+                                                                                        {{dt.event.score}}
+                                                                                    </div>
+                                                                                    <div class="col4">
+                                                                                        {{dt.event.status_name}}
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="clearfix"></div>
+                                                                            </div>
+                                                                            <div class="item">
+                                                                                <div class="item-left">
+                                                                                    {{'put_bet' |
+                                                                                                        translate}}
+                                                                                </div>
+                                                                                <div class="item-right">
+                                                                                    {{GetPercent(item) | number:'1.0-2'}}                                                                                                      x TL
+                                                                                                        {{couponDetail.stake}}
+                                                                                </div>
+                                                                                <div class="clearfix"></div>
+                                                                            </div>
+                                                                            <div class="item">
+                                                                                <div class="item-left">
+                                                                                    {{'full_bet' |
+                                                                                                        translate}}
+                                                                                </div>
+                                                                                <div class="item-right">
+                                                                                    TL
+                                                                                                        {{couponDetail.stake}}
+                                                                                </div>
+                                                                                <div class="clearfix"></div>
+                                                                            </div>
+                                                                            <div class="item">
+                                                                                <div class="item-left">
+                                                                                    {{'rates' |
+                                                                                                        translate}}:
+                                                                                </div>
+                                                                                <div class="item-right">
+                                                                                    {{GetPercent(item) | number:'1.0-2'}}
+                                                                                </div>
+                                                                                <div class="clearfix"></div>
+                                                                            </div>
+                                                                            <div class="item">
+                                                                                <div class="item-left">
+                                                                                    {{'copun_time' |
+                                                                                                        translate}}:
+                                                                                </div>
+                                                                                <div class="item-right">
+                                                                                    {{couponDetail.created_at_for_humans}}
+                                                                                </div>
+                                                                                <div class="clearfix"></div>
+                                                                            </div>
+                                                                            <div class="item">
+                                                                                <div class="item-left">
+                                                                                    {{'max_gain' |
+                                                                                                        translate}}:
+                                                                                </div>
+                                                                                <div class="item-right">
+                                                                                    {{couponDetail.possible_win}}
+                                                                                </div>
+                                                                                <div class="clearfix"></div>
+                                                                            </div>
+                                                                            <div class="clearfix"></div>
+                                                                        </div>
+                                                                    </section>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </ng-container>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="g-shadow__ie"></div>
+                                        <!--[endif]---->
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="subcontent" class="g-clearfix">
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+
+            </div>
+        </div>
+    </article>
+</div>

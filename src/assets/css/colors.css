@@ -1,0 +1,90 @@
+.b-colors {
+    cursor: pointer;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    float: left;
+}
+
+.ie8 .b-colors, .ie7 .b-colors {
+    padding-right: 12px !important;
+}
+
+.m-colors_expand {
+    background-position: -18px 0;
+}
+
+    .m-colors_expand:hover {
+        background-position: -67px 0;
+    }
+
+.b-colors__list {
+    font-size: 1.2em;
+    cursor: default;
+    padding: 11px 9px 0;
+    overflow: hidden;
+}
+
+.m-colors__list_clone {
+    float: left;
+    overflow: hidden;
+    visibility: hidden !important;
+    width: 0;
+}
+
+.b-colors__item {
+    float: left;
+    margin-right: 8px;
+    position: relative;
+}
+
+.m-colors__item_current {
+    top: -2px;
+    left: -2px;
+}
+
+.b-colors__link {
+    background: url(../img/bg_colors_no-repeat_60x144.png) no-repeat -9999px 0;
+    height: 20px;
+    text-decoration: none;
+    width: 24px;
+}
+
+.m-colors__item_current .b-colors__link {
+    width: 23px;
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
+    -khtml-border-radius: 1px;
+    border-radius: 1px;
+}
+
+.m-colors__link_black {
+    background-position: -35px -4px;
+}
+
+.m-colors__link_white {
+    background-position: -35px -34px;
+}
+
+.m-colors__link_green {
+    background-position: 0 -58px;
+}
+
+.m-colors__link_blue {
+    background-position: 0 -87px;
+}
+
+.m-colors__link_red {
+    background-position: 0 -116px;
+}
+
+.m-colors__item_current .m-colors__link_black {
+    background-position: -3px -3px;
+    border: 2px solid #e8e8e8;
+}
+
+.m-colors__item_current .m-colors__link_white {
+    background-position: -3px -35px;
+    border: 2px solid #a3a3a3;
+    background-color: #fff;
+}

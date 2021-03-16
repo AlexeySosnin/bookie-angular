@@ -1,0 +1,81 @@
+.td_change {
+    color: #fed2d2;
+    padding-bottom: 5px;
+}
+
+.b-link {
+    color: #fff;
+    text-decoration: underline;
+}
+
+    .b-link:hover {
+        text-decoration: none;
+    }
+
+.b-link2 {
+    color: #fff;
+    text-decoration: none;
+}
+
+.m-link_orange, .m-link_hover_orange:hover {
+    color: #ff7200;
+}
+
+.m-link_green {
+    color: #24911a;
+}
+
+.m-link_block {
+    display: block;
+}
+
+.m-link_leage {
+    color: #f1d23f;
+}
+
+.b-link.m-link_leage {
+    text-decoration: underline;
+}
+
+#acc_d .b-user-grid__cell_inn span {
+    color: #f1d23f;
+}
+
+.m-link_leage:hover {
+    text-decoration: none;
+}
+
+.m-link_active {
+    background: #fc7c14;
+    color: #000;
+}
+
+.teams_name {
+    max-width: 95%;
+}
+
+.b-link_name:hover {
+    color: #f1d23f;
+    text-decoration: underline;
+}
+
+.by-bookie {
+    display: block;
+    height: 36px;
+    width: 74px;
+    background: url(../img/by-bookie.png) no-repeat 0 0;
+    float: right;
+    right: 11px;
+    bottom: 24px;
+    -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,.79);
+    -moz-box-shadow: 1px 1px 3px rgba(0,0,0,.79);
+    -ms-box-shadow: 1px 1px 3px rgba(0,0,0,.79);
+    box-shadow: 1px 1px 3px rgba(0,0,0,.79);
+    text-decoration: none;
+    color: #fff;
+    outline: 0;
+}
+
+    .by-bookie:hover {
+        background-position: 0 -36px;
+    }
